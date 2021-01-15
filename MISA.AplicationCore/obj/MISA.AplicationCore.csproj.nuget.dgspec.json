@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.AplicationCore\\MISA.AplicationCore.csproj": {}
+    "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\MISA.AplicationCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.AplicationCore\\MISA.AplicationCore.csproj": {
+    "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\MISA.AplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.AplicationCore\\MISA.AplicationCore.csproj",
+        "projectUniqueName": "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\MISA.AplicationCore.csproj",
         "projectName": "MISA.AplicationCore",
-        "projectPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.AplicationCore\\MISA.AplicationCore.csproj",
+        "projectPath": "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\MISA.AplicationCore.csproj",
         "packagesPath": "C:\\Users\\dtson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.AplicationCore\\obj\\",
+        "outputPath": "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,8 +31,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\MISA.Infarstructure.csproj": {
-                "projectPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\MISA.Infarstructure.csproj"
+              "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\MISA.Infarstructure.csproj": {
+                "projectPath": "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\MISA.Infarstructure.csproj"
               }
             }
           }
@@ -61,18 +61,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\MISA.Infarstructure.csproj": {
+    "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\MISA.Infarstructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\MISA.Infarstructure.csproj",
+        "projectUniqueName": "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\MISA.Infarstructure.csproj",
         "projectName": "MISA.Infarstructure",
-        "projectPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\MISA.Infarstructure.csproj",
+        "projectPath": "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\MISA.Infarstructure.csproj",
         "packagesPath": "C:\\Users\\dtson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\obj\\",
+        "outputPath": "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -128,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

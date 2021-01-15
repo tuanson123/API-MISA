@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lijMhO64n0lEXElY049pxOUJtiM/lRUSwPrrw7V1HRc9oTrTxoEWmLz5R/Uk7c4yqfcP3Pq/tYbsRjG7pyiqiw==",
+  "dgSpecHash": "DGsifUkuJHVYdAyCW3xG4EhDLYBUTNGTjgSvoSN6eh74hP8nT+w7Cc1fUs1AcW28aLoMCcKu/um3SrioChOxsQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISACukCuk.Api\\MISACukCuk.Api.csproj",
+  "projectFilePath": "C:\\Users\\dtson\\API_MS\\MISACukCuk.Api\\MISACukCuk.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dtson\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\dtson\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
@@ -107,12 +107,5 @@
     "C:\\Users\\dtson\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
     "C:\\Users\\dtson\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.0.1\\system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISACukCuk.Api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

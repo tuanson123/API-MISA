@@ -10,3 +10,15 @@ C:\Users\dtson\API\Api\MISACukCuk.Api\MISA.Infarstructure\bin\Debug\net5.0\MISA.
 C:\Users\dtson\API\Api\MISACukCuk.Api\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.dll
 C:\Users\dtson\API\Api\MISACukCuk.Api\MISA.Infarstructure\obj\Debug\net5.0\ref\MISA.Infarstructure.dll
 C:\Users\dtson\API\Api\MISACukCuk.Api\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.pdb
+C:\Users\dtson\API_MS\MISA.Infarstructure\bin\Debug\net5.0\MISA.Infarstructure.deps.json
+C:\Users\dtson\API_MS\MISA.Infarstructure\bin\Debug\net5.0\MISA.Infarstructure.dll
+C:\Users\dtson\API_MS\MISA.Infarstructure\bin\Debug\net5.0\ref\MISA.Infarstructure.dll
+C:\Users\dtson\API_MS\MISA.Infarstructure\bin\Debug\net5.0\MISA.Infarstructure.pdb
+C:\Users\dtson\API_MS\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.csprojAssemblyReference.cache
+C:\Users\dtson\API_MS\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dtson\API_MS\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.AssemblyInfoInputs.cache
+C:\Users\dtson\API_MS\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.AssemblyInfo.cs
+C:\Users\dtson\API_MS\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.csproj.CoreCompileInputs.cache
+C:\Users\dtson\API_MS\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.dll
+C:\Users\dtson\API_MS\MISA.Infarstructure\obj\Debug\net5.0\ref\MISA.Infarstructure.dll
+C:\Users\dtson\API_MS\MISA.Infarstructure\obj\Debug\net5.0\MISA.Infarstructure.pdb

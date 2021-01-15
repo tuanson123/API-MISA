@@ -5959,11 +5959,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISACukCuk.Api\\MISACukCuk.Api.csproj",
+      "projectUniqueName": "C:\\Users\\dtson\\API_MS\\MISACukCuk.Api\\MISACukCuk.Api.csproj",
       "projectName": "MISACukCuk.Api",
-      "projectPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISACukCuk.Api\\MISACukCuk.Api.csproj",
+      "projectPath": "C:\\Users\\dtson\\API_MS\\MISACukCuk.Api\\MISACukCuk.Api.csproj",
       "packagesPath": "C:\\Users\\dtson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISACukCuk.Api\\obj\\",
+      "outputPath": "C:\\Users\\dtson\\API_MS\\MISACukCuk.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5983,8 +5983,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.AplicationCore\\MISA.AplicationCore.csproj": {
-              "projectPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.AplicationCore\\MISA.AplicationCore.csproj"
+            "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\MISA.AplicationCore.csproj": {
+              "projectPath": "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\MISA.AplicationCore.csproj"
             }
           }
         }
@@ -6044,16 +6044,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISACukCuk.Api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

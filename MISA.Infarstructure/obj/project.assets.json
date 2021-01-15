@@ -5585,11 +5585,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\MISA.Infarstructure.csproj",
+      "projectUniqueName": "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\MISA.Infarstructure.csproj",
       "projectName": "MISA.Infarstructure",
-      "projectPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\MISA.Infarstructure.csproj",
+      "projectPath": "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\MISA.Infarstructure.csproj",
       "packagesPath": "C:\\Users\\dtson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\obj\\",
+      "outputPath": "C:\\Users\\dtson\\API_MS\\MISA.Infarstructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5645,16 +5645,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\dtson\\API\\Api\\MISACukCuk.Api\\MISA.Infarstructure\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
