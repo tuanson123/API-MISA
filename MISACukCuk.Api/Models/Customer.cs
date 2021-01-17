@@ -4,10 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace MISACukCuk.Api.Models
-{/// <summary>
-/// Khách hàng
-/// CreatedBy:DOTUANSON(2021/08/01)
-/// </summary>
+{
     public class Customer
     {
         #region Declare
@@ -26,7 +23,7 @@ namespace MISACukCuk.Api.Models
         /// Mã khách hàng
         /// </summary>
         public string CustomerCode { get; set; }
-       
+
         /// <summary>
         /// Họ và tên
         /// </summary>
@@ -55,7 +52,7 @@ namespace MISACukCuk.Api.Models
         /// Mã nhóm khách hàng
         /// </summary>
         public Guid? CustomeGroupId { get; set; }
-       
+
         /// <summary>
         /// Số thẻ thành viên
         /// </summary>
@@ -71,7 +68,7 @@ namespace MISACukCuk.Api.Models
         /// <summary>
         /// Ngừng theo dõi(true ngừng theo dõi, false-ngược lại)
         /// </summary>
-        
+
 
         public DateTime? CreatedDate { get; set; }
         public string CreatedBy { get; set; }
@@ -81,6 +78,5 @@ namespace MISACukCuk.Api.Models
 
         #region Method
         #endregion
-
     }
 }

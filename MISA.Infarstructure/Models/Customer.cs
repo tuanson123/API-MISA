@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MISA.Infarstructure.Models
-{/// <summary>
-/// Khách hàng
-/// CreatedBy:DOTUANSON(2021/08/01)
-/// </summary>
+{
     public class Customer
     {
         #region Declare
@@ -26,7 +24,7 @@ namespace MISA.Infarstructure.Models
         /// Mã khách hàng
         /// </summary>
         public string CustomerCode { get; set; }
-       
+
         /// <summary>
         /// Họ và tên
         /// </summary>
@@ -55,7 +53,7 @@ namespace MISA.Infarstructure.Models
         /// Mã nhóm khách hàng
         /// </summary>
         public Guid? CustomeGroupId { get; set; }
-       
+
         /// <summary>
         /// Số thẻ thành viên
         /// </summary>
@@ -71,7 +69,7 @@ namespace MISA.Infarstructure.Models
         /// <summary>
         /// Ngừng theo dõi(true ngừng theo dõi, false-ngược lại)
         /// </summary>
-        
+
 
         public DateTime? CreatedDate { get; set; }
         public string CreatedBy { get; set; }
@@ -81,6 +79,5 @@ namespace MISA.Infarstructure.Models
 
         #region Method
         #endregion
-
     }
 }

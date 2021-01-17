@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MISACukCuk.Api.Models;
 using System;
 using Dapper;
 using System.Collections.Generic;
@@ -8,6 +7,8 @@ using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
 using MISA.AplicationCore;
+using MISA.AplicationCore.Interfaces;
+using MISA.Infarstructure.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,6 +22,11 @@ namespace MISACukCuk.Api.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
+        ICustomerService _customerService;
+        public CustomersController(ICustomerService customerService)
+        {
+            _customerService = customerService;
+        }
         #region declare
         //Kết nối tới database
         string _connectionString = "User Id=nvmanh;" +
@@ -52,10 +58,10 @@ namespace MISACukCuk.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            DbConnector dbConnector = new DbConnector();
+            
 
             //lấy dữ liệu từ database
-            var customer = dbConnector.Get<Customer>();
+            var customer = _customerService.GetCustomers();
             //trả dữ liệu cho client
             return Ok(customer);
         }
@@ -80,19 +86,19 @@ namespace MISACukCuk.Api.Controllers
         }
 
         // POST api/<CustomersController>
-        /*[HttpPost]
+        [HttpPost]
         public IActionResult Post(Customer customer)
         {
-            var customerService = new CustomerService();
-            var serviceResult = customerService.InsertCustomer(customer);
+            
+            var serviceResult = _customerService.AddCustomer(customer);
             if (serviceResult.MISACode == 900)
                 return BadRequest(serviceResult.Data);
             if (serviceResult.MISACode == 100 && (int)serviceResult.Data > 0)
                 return Created("ssdsad", customer);
             else
                 return NoContent();
-            
-        }*/
+
+        }
 
         // PUT api/<CustomersController>/5
         [HttpPut("{id}")]

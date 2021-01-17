@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Entities
 {
-    class ServiceResult
+    public class ServiceResult
     {
         public object Data { get; set; }
         public string Messenger { get; set; }
