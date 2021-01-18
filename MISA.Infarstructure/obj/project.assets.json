@@ -1565,6 +1565,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "MISA.AplicationCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MISA.AplicationCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MISA.AplicationCore.dll": {}
+        }
       }
     }
   },
@@ -5570,11 +5580,17 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "MISA.AplicationCore/1.0.0": {
+      "type": "project",
+      "path": "../MISA.AplicationCore/MISA.AplicationCore.csproj",
+      "msbuildProject": "../MISA.AplicationCore/MISA.AplicationCore.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Dapper >= 2.0.78",
+      "MISA.AplicationCore >= 1.0.0",
       "MySql.Data >= 8.0.22"
     ]
   },
@@ -5608,7 +5624,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ADMIN\\source\\repos\\tuanson123\\API_MISA\\MISA.AplicationCore\\MISA.AplicationCore.csproj": {
+              "projectPath": "C:\\Users\\ADMIN\\source\\repos\\tuanson123\\API_MISA\\MISA.AplicationCore\\MISA.AplicationCore.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

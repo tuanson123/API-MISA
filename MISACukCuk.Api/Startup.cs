@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using MISA.AplicationCore;
 using MISA.AplicationCore.Interfaces;
 using MISA.Infarstructure;
+using MISA.Infarstructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace MISACukCuk.Api
             services.AddControllers();
             services.AddScoped<ICustomerRespository, CustomerRepository>();
             services.AddScoped<ICustomerService,CustomerService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISACukCuk.Api", Version = "v1" });

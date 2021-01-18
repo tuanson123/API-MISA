@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MISA.Infarstructure.Interfaces;
 using MISA.Infarstructure.Models;
 using MySql.Data.MySqlClient;
 using System;
@@ -14,12 +15,30 @@ namespace MISA.Infarstructure
     {
         public int AddCustomer(Customer customer)
         {
+            throw new NotImplementedException(); 
+        }
+
+        public int AddCustomer(MISACukCuk.AplicationCore.Entities.Customer customer)
+        {
             throw new NotImplementedException();
         }
 
         public int DeleteCustomer(Guid customerId)
         {
             throw new NotImplementedException();
+        }
+
+        public Customer GetCustomerByCode(string customerCode)
+        {
+            var connectionString = "User Id=nvmanh;" +
+               "Host=103.124.92.43;" +
+               "Port=3306;" +
+               "Database=MISACukCuk_MF650_DTSON;" +
+               "Password=12345678;" +
+               "Character Set=utf8";
+            IDbConnection dbConnection = new MySqlConnection(connectionString);
+            var res = dbConnection.Query<Customer>("Proc_GetCustomerByCode", new { CustomerCode = customerCode }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            return res;
         }
 
         public Customer GetCustomerById(Guid customerId)
@@ -46,6 +65,26 @@ namespace MISA.Infarstructure
         }
 
         public int UpdateCustomer(Customer customer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int UpdateCustomer(MISACukCuk.AplicationCore.Entities.Customer customer)
+        {
+            throw new NotImplementedException();
+        }
+
+        MISACukCuk.AplicationCore.Entities.Customer ICustomerRespository.GetCustomerByCode(string customerCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        MISACukCuk.AplicationCore.Entities.Customer ICustomerRespository.GetCustomerById(Guid customerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<MISACukCuk.AplicationCore.Entities.Customer> ICustomerRespository.GetCustomers()
         {
             throw new NotImplementedException();
         }

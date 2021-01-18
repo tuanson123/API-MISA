@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MISA.Infarstructure.Models;
+
 using MISA.Infarstructure;
 using MISA.AplicationCore.Entities;
 using MISA.AplicationCore.Interfaces;
+using MISACukCuk.AplicationCore.Entities;
+using MISA.Infarstructure.Interfaces;
 
 namespace MISA.AplicationCore
 {
@@ -51,7 +53,7 @@ namespace MISA.AplicationCore
         public ServiceResult AddCustomer(Customer customer)
         {
             var serviceResult = new ServiceResult();
-            var customerContext = new CustomerContext();
+           
             //Validate dữ liệu:
             //Check trường bắt buộc nhập
             var customerCode = customer.CustomerCode;
@@ -69,7 +71,7 @@ namespace MISA.AplicationCore
                 return serviceResult;
             }
             //Check trùng mã
-            var res = customerContext.GetCustomerByCode(customerCode);
+            var res = _customerRepository.GetCustomerByCode(customerCode);
             if (res != null)
             {
                 var msg = new
@@ -85,7 +87,7 @@ namespace MISA.AplicationCore
             }
 
             //Thêm mới khi dữ liệu đã hợp lệ:
-            var rowAffects = customerContext.InsertCustomer(customer);
+            var rowAffects = _customerRepository.AddCustomer(customer);
             serviceResult.MISACode = 100;
             serviceResult.Messenger = "Thêm Thành Công";
             serviceResult.Data = rowAffects;

@@ -8,7 +8,8 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using MISA.AplicationCore;
 using MISA.AplicationCore.Interfaces;
-using MISA.Infarstructure.Models;
+
+using MISACukCuk.AplicationCore.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
