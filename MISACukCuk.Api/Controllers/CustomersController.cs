@@ -92,7 +92,7 @@ namespace MISACukCuk.Api.Controllers
         {
             
             var serviceResult = _customerService.AddCustomer(customer);
-            if (serviceResult.MISACode == 900)
+            if (serviceResult.MISACode == MISACode.NotValid)
                 return BadRequest(serviceResult.Data);
             if (serviceResult.MISACode == 100 && (int)serviceResult.Data > 0)
                 return Created("ssdsad", customer);

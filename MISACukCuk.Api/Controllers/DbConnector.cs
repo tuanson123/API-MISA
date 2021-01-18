@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using MISACukCuk.Api.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -50,7 +49,8 @@ namespace MISACukCuk.Api.Controllers
         /// </summary>
         /// <returns></returns>
         public IEnumerable<MISATEntity> GetById<MISATEntity>(Guid entityId)
-        {   //Biến lấy tên vế sau
+        {   
+            //Biến lấy tên vế sau
             string tableName = typeof(MISATEntity).Name;
             //lấy dữ liệu từ database
             var entity = _dbConnection.Query<MISATEntity>($"SELECT *from {tableName} where {tableName}Id='{entityId.ToString()}'").FirstOrDefault();
