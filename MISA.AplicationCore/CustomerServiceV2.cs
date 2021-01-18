@@ -1,6 +1,6 @@
 ﻿using MISA.AplicationCore.Entities;
 using MISA.AplicationCore.Interfaces;
-using MISA.Infarstructure.Models;
+using MISACukCuk.AplicationCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

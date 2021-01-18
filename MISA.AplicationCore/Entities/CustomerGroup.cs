@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MISACukCuk.Api.Models
+namespace MISACukCuk.Entities.Models
 {
     /// <summary>
     /// Nhóm khách hàng

@@ -17,14 +17,11 @@ C:\Users\dtson\API_MS\MISA.AplicationCore\bin\Debug\net5.0\MISA.AplicationCore.d
 C:\Users\dtson\API_MS\MISA.AplicationCore\bin\Debug\net5.0\MISA.AplicationCore.dll
 C:\Users\dtson\API_MS\MISA.AplicationCore\bin\Debug\net5.0\ref\MISA.AplicationCore.dll
 C:\Users\dtson\API_MS\MISA.AplicationCore\bin\Debug\net5.0\MISA.AplicationCore.pdb
-C:\Users\dtson\API_MS\MISA.AplicationCore\bin\Debug\net5.0\MISA.Infarstructure.dll
-C:\Users\dtson\API_MS\MISA.AplicationCore\bin\Debug\net5.0\MISA.Infarstructure.pdb
 C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.csprojAssemblyReference.cache
 C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.AssemblyInfoInputs.cache
 C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.AssemblyInfo.cs
 C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.csproj.CoreCompileInputs.cache
-C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.csproj.CopyComplete
 C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.dll
 C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\ref\MISA.AplicationCore.dll
 C:\Users\dtson\API_MS\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.pdb
