@@ -9,6 +9,7 @@ using MISA.AplicationCore.Entities;
 using MISA.AplicationCore.Interfaces;
 using MISACukCuk.AplicationCore.Entities;
 using MISA.Infarstructure.Interfaces;
+using MISA.AplicationCore.Enums;
 
 namespace MISA.AplicationCore
 {
@@ -65,7 +66,7 @@ namespace MISA.AplicationCore
                     userMsg = "Mã khách hàng không được để trống",
                     Code = 900,
                 };
-                serviceResult.MISACode = 900;
+                serviceResult.MISACode = MISACode.NotValid;
                 serviceResult.Messenger = "Mã khách hàng không được phép để trống";
                 serviceResult.Data = msg;
                 return serviceResult;
@@ -80,7 +81,7 @@ namespace MISA.AplicationCore
                     userMsg = "Mã khách hàng không được để trống",
                     Code = 900,
                 };
-                serviceResult.MISACode = 900;
+                serviceResult.MISACode = MISACode.NotValid;
                 serviceResult.Messenger = "Mã khách hàng không được phép để trống";
                 serviceResult.Data = msg;
                 return serviceResult;
@@ -88,7 +89,7 @@ namespace MISA.AplicationCore
 
             //Thêm mới khi dữ liệu đã hợp lệ:
             var rowAffects = _customerRepository.AddCustomer(customer);
-            serviceResult.MISACode = 100;
+            serviceResult.MISACode = MISACode.NotValid;
             serviceResult.Messenger = "Thêm Thành Công";
             serviceResult.Data = rowAffects;
 

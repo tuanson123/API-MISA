@@ -10,6 +10,7 @@ using MISA.AplicationCore;
 using MISA.AplicationCore.Interfaces;
 
 using MISACukCuk.AplicationCore.Entities;
+using MISA.AplicationCore.Enums;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -94,8 +95,8 @@ namespace MISACukCuk.Api.Controllers
             var serviceResult = _customerService.AddCustomer(customer);
             if (serviceResult.MISACode == MISACode.NotValid)
                 return BadRequest(serviceResult.Data);
-            if (serviceResult.MISACode == 100 && (int)serviceResult.Data > 0)
-                return Created("ssdsad", customer);
+            if (serviceResult.MISACode == MISACode.IsValid && (int)serviceResult.Data > 0)
+                return Created("ssdsad", serviceResult);
             else
                 return NoContent();
 
