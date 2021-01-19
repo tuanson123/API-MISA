@@ -5,7 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Entities
-{
+{/// <summary>
+/// Thông tin nhân viên
+/// CreateBy:DTSON(19/01/2021)
+/// </summary>
     public class Employee
     {
         /// <summary>

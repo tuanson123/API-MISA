@@ -15,9 +15,10 @@ namespace MISA.AplicationCore
 {
     public class CustomerService: ICustomerService
     {
-        ICustomerRespository _customerRepository;
+        ICustomerRepository _customerRepository;
         #region Constructor
-        public CustomerService(ICustomerRespository customerRepository)
+        //Khởi tạo
+        public CustomerService(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
             
@@ -35,10 +36,12 @@ namespace MISA.AplicationCore
             return (IEnumerable<Customer>)customers;
 
         }
+        //Lấy danh sách khách hàng theo ID
         public Customer GetCustomerById(Guid customerId)
         {
             throw new NotImplementedException();
         }
+        //Cập nhật khách hàng
         public ServiceResult UpdateCustomer(Customer customer)
         {
             throw new NotImplementedException();

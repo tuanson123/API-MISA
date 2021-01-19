@@ -13,7 +13,7 @@ using System.Reflection;
 
 namespace MISA.Infarstructure
 {
-    public class CustomerRepository : ICustomerRespository
+    public class CustomerRepository : ICustomerRepository
     {
         #region Declare
         IConfiguration _configuration;

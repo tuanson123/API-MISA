@@ -31,7 +31,7 @@ namespace MISACukCuk.Api
         {
 
             services.AddControllers();
-            services.AddScoped<ICustomerRespository, CustomerRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICustomerService,CustomerService>();
 
             services.AddSwaggerGen(c =>

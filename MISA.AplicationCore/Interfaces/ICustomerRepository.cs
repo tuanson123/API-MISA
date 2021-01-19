@@ -12,7 +12,7 @@ namespace MISA.Infarstructure.Interfaces
     /// Interface danh mục khách hàng
     /// </summary>
     /// CreateBy:DTSON(1/18/2021)
-    public interface ICustomerRespository
+    public interface ICustomerRepository
     {/// <summary>
      /// Lấy danh sách khách hàng
      /// </summary>

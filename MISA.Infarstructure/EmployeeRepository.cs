@@ -1,49 +1,43 @@
-﻿using MISA.Infarstructure.Interfaces;
+﻿using MISA.AplicationCore.Entities;
+using MISA.AplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
-using MISACukCuk.AplicationCore.Entities;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MISA.Infarstructure
 {
-    public class CustomerRepository2 : ICustomerRepository
+    public class EmployeeRepository : IEmployeeRepository
     {
-        public int AddCustomer(Customer customer)
+        public int AddCustomer(Employee employee)
         {
             throw new NotImplementedException();
         }
 
-        public int DeleteCustomer(Guid customerId)
+        public int DeleteEmployee(Guid employeeId)
         {
             throw new NotImplementedException();
         }
 
-        public Customer GetCustomerByCode(string customerCode)
+        public Employee GetEmployeeByCode(string employeeCode)
         {
             throw new NotImplementedException();
         }
 
-        public Customer GetCustomerById(Guid customerId)
+        public Employee GetEmployeeById(Guid employeeId)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<Employee> GetEmployees()
         {
             throw new NotImplementedException();
         }
 
-        public int UpdateCustomer(Customer customer)
+        public int UpdateEmployee(Employee employee)
         {
             throw new NotImplementedException();
         }
-
-        
-
-       
-
-        
     }
 }
