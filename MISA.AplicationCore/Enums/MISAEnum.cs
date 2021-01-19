@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Enums
 {
-    class MISAEnum
-    {/// <summary>
-    /// MISACode để xác định trạng thái của việc Validate
-    /// </summary>
+ 
         public enum MISACode
 
         {   /// <summary>
@@ -31,5 +28,5 @@ namespace MISA.AplicationCore.Enums
             Update=2,
             Delete=3
         }
-    }
+    
 }

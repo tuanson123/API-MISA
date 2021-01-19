@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.AplicationCore.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,6 @@ namespace MISA.AplicationCore.Entities
     {
         public object Data { get; set; }
         public string Messenger { get; set; }
-        public int MISACode { get; set; }
+        public MISACode MISACode { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using MISA.AplicationCore.Entities;
 using MISA.AplicationCore.Interfaces;
 using MISACukCuk.AplicationCore.Entities;
 using MISA.Infarstructure.Interfaces;
+using MISA.AplicationCore.Enums;
 
 namespace MISA.AplicationCore
 {
@@ -19,19 +20,9 @@ namespace MISA.AplicationCore
         public CustomerService(ICustomerRespository customerRepository)
         {
             _customerRepository = customerRepository;
+            
         }
 
-      
-
-        public ServiceResult DeleteCustomer(Guid customerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Customer GetCustomerById(Guid customerId)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
         #region Method
         //Lấy danh sách khách hàng
@@ -44,7 +35,10 @@ namespace MISA.AplicationCore
             return (IEnumerable<Customer>)customers;
 
         }
-
+        public Customer GetCustomerById(Guid customerId)
+        {
+            throw new NotImplementedException();
+        }
         public ServiceResult UpdateCustomer(Customer customer)
         {
             throw new NotImplementedException();
@@ -65,7 +59,7 @@ namespace MISA.AplicationCore
                     userMsg = "Mã khách hàng không được để trống",
                     Code = 900,
                 };
-                serviceResult.MISACode = 900;
+                serviceResult.MISACode = MISACode.NotValid;
                 serviceResult.Messenger = "Mã khách hàng không được phép để trống";
                 serviceResult.Data = msg;
                 return serviceResult;
@@ -80,7 +74,7 @@ namespace MISA.AplicationCore
                     userMsg = "Mã khách hàng không được để trống",
                     Code = 900,
                 };
-                serviceResult.MISACode = 900;
+                serviceResult.MISACode = MISACode.NotValid;
                 serviceResult.Messenger = "Mã khách hàng không được phép để trống";
                 serviceResult.Data = msg;
                 return serviceResult;
@@ -88,13 +82,19 @@ namespace MISA.AplicationCore
 
             //Thêm mới khi dữ liệu đã hợp lệ:
             var rowAffects = _customerRepository.AddCustomer(customer);
-            serviceResult.MISACode = 100;
+            serviceResult.MISACode = MISACode.NotValid;
             serviceResult.Messenger = "Thêm Thành Công";
             serviceResult.Data = rowAffects;
 
             return serviceResult;
         }
         //Xóa khách hàng
+        public ServiceResult DeleteCustomer(Guid customerId)
+        {
+           var serviceResult=new ServiceResult();
+            serviceResult.Data = _customerRepository.DeleteCustomer(customerId);
+            return serviceResult;
+        }
 
         //Sửa khách hàng
         #endregion

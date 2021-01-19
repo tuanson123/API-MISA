@@ -10,6 +10,7 @@ using MISA.AplicationCore;
 using MISA.AplicationCore.Interfaces;
 
 using MISACukCuk.AplicationCore.Entities;
+using MISA.AplicationCore.Enums;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,6 +28,7 @@ namespace MISACukCuk.Api.Controllers
         public CustomersController(ICustomerService customerService)
         {
             _customerService = customerService;
+            _dbConnection = new MySqlConnection(_connectionString);
         }
         #region declare
         //Kết nối tới database
@@ -41,10 +43,7 @@ namespace MISACukCuk.Api.Controllers
         #endregion
 
         #region constructor
-        public CustomersController()
-        {
-            _dbConnection = new MySqlConnection(_connectionString);
-        }
+       
         #endregion
 
         #region Method
@@ -94,8 +93,8 @@ namespace MISACukCuk.Api.Controllers
             var serviceResult = _customerService.AddCustomer(customer);
             if (serviceResult.MISACode == MISACode.NotValid)
                 return BadRequest(serviceResult.Data);
-            if (serviceResult.MISACode == 100 && (int)serviceResult.Data > 0)
-                return Created("ssdsad", customer);
+            if (serviceResult.MISACode == MISACode.IsValid && (int)serviceResult.Data > 0)
+                return Created("ssdsad", serviceResult);
             else
                 return NoContent();
 
@@ -106,50 +105,16 @@ namespace MISACukCuk.Api.Controllers
         public IActionResult Put(Guid id, [FromBody] Customer customer)
         {
             
-            string changeId = id.ToString();
             
-            var storeParamObject = new
-            {
-                CustomerId = changeId,
-                CustomerCode = customer.CustomerCode,
-                FullName = customer.FullName,
-                MemberCardCode = customer.MemberCardCode,
-                CustomerGroupId = customer.CustomeGroupId.ToString(),
-                DateOfBirth = customer.DateOfBirth,
-                Gender = customer.Gender,
-                Email = customer.Email,
-                PhoneNumber = customer.PhoneNumber,
-                CompanyName = customer.CompanyName,
-                CompanyTaxCode = customer.CompanyTaxCode,
-                Address = customer.Address,
-                CreatedDate = customer.CreatedDate,
-                CreatedBy = customer.CreatedBy,
-                ModifiedDate = customer.ModifiedDate,
-                ModifiedBy = customer.ModifiedBy,
-            };
-            DynamicParameters dynamicParameters = new DynamicParameters();
-            var properties = customer.GetType().GetProperties();
-            foreach (var property in properties)
-            {
-                var propertyName = property.Name;
-                var propertyValue = property.GetValue(customer);
-                if (property.PropertyType == typeof(Guid))
-                {
-                    propertyValue = property.GetValue(customer).ToString();
-                }
-                dynamicParameters.Add($"@{propertyName}", propertyValue);
-            }
-            //Thực hiện câu lệnh truy vấn sửa vào database
-            var res = _dbConnection.Execute("Proc_UpdateCustomer", commandType: CommandType.StoredProcedure, param: storeParamObject);
-            //Trả dữ liệu cho client
-            return Ok(res);
+            return Ok(1);
         }
 
         // DELETE api/<CustomersController>/5
         [HttpDelete("{id}")]    
-        public IActionResult Delete(Customer customer)
+        public IActionResult Delete(Guid id)
         {
-            return Ok(1);
+            var res=_customerService.DeleteCustomer(id);
+            return Ok(res);
         }
         #endregion
     }

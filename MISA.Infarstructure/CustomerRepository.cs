@@ -44,7 +44,8 @@ namespace MISA.Infarstructure
 
         public int DeleteCustomer(Guid customerId)
         {
-            throw new NotImplementedException();
+            var res = _dbConnection.Execute("Proc_DeleteCustomerById",new { CustomerId=customerId.ToString()}, commandType: CommandType.StoredProcedure);
+            return res;
         }
 
         public Customer GetCustomerByCode(string customerCode)
@@ -61,7 +62,7 @@ namespace MISA.Infarstructure
             
             
             //Lấy dữ liệu data base
-            var customers = _dbConnection.Query<Customer>("Proc_GetCustomerById",new { CustomerId= customerId }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            var customers = _dbConnection.Query<Customer>("Proc_GetCustomerById",new { CustomerId= customerId.ToString() }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             //Trả về dữ liệu
             return customers;
         }
@@ -79,10 +80,10 @@ namespace MISA.Infarstructure
         }
 
         public int UpdateCustomer(Customer customer)
-        {   //Khởi tạo kết nối với database
+        {   //Khởi tạo kết nối với databaseClass1.cs
             var parameters=MappingDbType(customer);
              //Thực hiện câu lệnh truy vấn thêm mới vào database
-            var res = _dbConnection.Execute("Proc_UpdateCustomer",parameters ,commandType: CommandType.StoredProcedure);
+            var res = _dbConnection.Execute("Proc_UpdateCustomer", parameters ,commandType: CommandType.StoredProcedure);
             //Trả dữ liệu cho client
 
             return res;
