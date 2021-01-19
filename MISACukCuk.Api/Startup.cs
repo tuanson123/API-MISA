@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MISA.AplicationCore;
 using MISA.AplicationCore.Interfaces;
+using MISA.AplicationCore.Services;
 using MISA.Infarstructure;
 using MISA.Infarstructure.Interfaces;
 using System;
@@ -31,9 +32,12 @@ namespace MISACukCuk.Api
         {
 
             services.AddControllers();
+            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICustomerService,CustomerService>();
-
+             services.AddScoped<IEmployeeRepository,EmployeeRepository>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISACukCuk.Api", Version = "v1" });

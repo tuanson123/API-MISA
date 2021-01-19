@@ -8,12 +8,20 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Interfaces
 {
-    public interface ICustomerService
-    {
-        IEnumerable<Customer> GetCustomers();
-        Customer GetCustomerById(Guid customerId);
-        ServiceResult AddCustomer(Customer customer);
-        ServiceResult UpdateCustomer(Customer customer);
-        ServiceResult DeleteCustomer(Guid customerId);
+    public interface ICustomerService:IBaseService<Customer>
+    {/// <summary>
+    /// Lấy dữ liệu phân trang
+    /// </summary>
+    /// <param name="limit"></param>
+    /// <param name="offset"></param>
+    /// <returns></returns>
+        IEnumerable<Customer> GetCustomerPaging(int limit, int offset);
+        /// <summary>
+        /// Lấy danh sách khách hàng theo nhóm khách hàng
+        /// </summary>
+        /// <param name="groupId">Nhom khách hàng</param>
+        /// <returns>List khách hàng</returns>
+        /// CreatedBy:DTSON(19/01/2021)
+        IEnumerable<Customer> GetCustomersByGroup(Guid groupId);
     }
 }

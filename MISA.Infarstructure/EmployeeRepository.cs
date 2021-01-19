@@ -1,7 +1,11 @@
-﻿using MISA.AplicationCore.Entities;
+﻿using Dapper;
+using Microsoft.Extensions.Configuration;
+using MISA.AplicationCore.Entities;
 using MISA.AplicationCore.Interfaces;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +14,19 @@ namespace MISA.Infarstructure
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        public int AddCustomer(Employee employee)
+        #region Declare
+        //Khai báo biến
+        IConfiguration _configuration;
+        string _connectionString = string.Empty;
+        IDbConnection _dbConnection = null;
+        #endregion
+        public EmployeeRepository(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _connectionString = configuration.GetConnectionString("MISACukCukConnectionString");
+            _dbConnection = new MySqlConnection(_connectionString);
+        }    
+        public int AddEmployee(Employee employee)
         {
             throw new NotImplementedException();
         }
@@ -32,7 +48,7 @@ namespace MISA.Infarstructure
 
         public IEnumerable<Employee> GetEmployees()
         {
-            throw new NotImplementedException();
+            return _dbConnection.Query<Employee>("SELECT *FROM Employee");
         }
 
         public int UpdateEmployee(Employee employee)

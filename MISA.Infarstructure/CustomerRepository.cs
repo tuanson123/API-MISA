@@ -16,6 +16,7 @@ namespace MISA.Infarstructure
     public class CustomerRepository : ICustomerRepository
     {
         #region Declare
+        //Khai báo biến
         IConfiguration _configuration;
         string _connectionString = string.Empty;
         IDbConnection _dbConnection = null;
@@ -58,9 +59,7 @@ namespace MISA.Infarstructure
 
         public Customer GetCustomerById(Guid customerId)
         {
-          
-            
-            
+         
             //Lấy dữ liệu data base
             var customers = _dbConnection.Query<Customer>("Proc_GetCustomerById",new { CustomerId= customerId.ToString() }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             //Trả về dữ liệu

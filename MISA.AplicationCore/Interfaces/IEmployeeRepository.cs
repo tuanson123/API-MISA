@@ -27,7 +27,7 @@ namespace MISA.AplicationCore.Interfaces
         /// </summary>
         /// <returns> số bản ghi thêm thành công</returns>
         /// CreateBy:DTSON(1/18/2021)
-        int AddCustomer(Employee employee);
+        int AddEmployee(Employee employee);
 
         /// <summary>
         /// Cập nhật nhân viên
