@@ -20,19 +20,9 @@ namespace MISA.AplicationCore
         public CustomerService(ICustomerRespository customerRepository)
         {
             _customerRepository = customerRepository;
+            
         }
 
-      
-
-        public ServiceResult DeleteCustomer(Guid customerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Customer GetCustomerById(Guid customerId)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
         #region Method
         //Lấy danh sách khách hàng
@@ -45,7 +35,10 @@ namespace MISA.AplicationCore
             return (IEnumerable<Customer>)customers;
 
         }
-
+        public Customer GetCustomerById(Guid customerId)
+        {
+            throw new NotImplementedException();
+        }
         public ServiceResult UpdateCustomer(Customer customer)
         {
             throw new NotImplementedException();
@@ -96,6 +89,12 @@ namespace MISA.AplicationCore
             return serviceResult;
         }
         //Xóa khách hàng
+        public ServiceResult DeleteCustomer(Guid customerId)
+        {
+           var serviceResult=new ServiceResult();
+            serviceResult.Data = _customerRepository.DeleteCustomer(customerId);
+            return serviceResult;
+        }
 
         //Sửa khách hàng
         #endregion
