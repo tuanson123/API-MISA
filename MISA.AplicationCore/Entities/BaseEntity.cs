@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.AplicationCore.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,10 @@ namespace MISA.AplicationCore.Entities
     {
 
     }
-    class BaseEntity
+
+    public class BaseEntity
     {
+        public EntityState EntityState { get; set; } = EntityState.AddNew;
         public DateTime? CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }

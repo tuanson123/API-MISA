@@ -1,17 +1,20 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using MISA.AplicationCore.Entities;
+using MISA.AplicationCore.Enums;
 using MISA.AplicationCore.Interfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MISA.Infarstructure
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity>
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity:BaseEntity
     {
         #region Declare
         //Khai báo biến
@@ -57,26 +60,65 @@ namespace MISA.Infarstructure
             throw new NotImplementedException();
         }
 
-        public int Update(TEntity customer)
+        public int Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            //Khởi tạo kết nối với database
+            var parameters = MappingDbType(entity);
+
+            //Thực hiện câu lệnh truy vấn thêm mới vào database
+            var res = _dbConnection.Execute($"Proc_Update{_tableName}", parameters, commandType: CommandType.StoredProcedure);
+            //Trả dữ liệu cho client
+
+            return res;
         }
         private DynamicParameters MappingDbType(TEntity entity)
         {
             var properties = entity.GetType().GetProperties();
-            DynamicParameters dynamicParameters = new DynamicParameters();
+            var parameters = new DynamicParameters();
             foreach (var property in properties)
             {
                 var propertyName = property.Name;
                 var propertyValue = property.GetValue(entity);
-                if (property.PropertyType == typeof(Guid) || property.PropertyType == typeof(Guid?))
+                var propertyType = property.PropertyType;
+                if (propertyType == typeof(Guid) || propertyType == typeof(Guid?))
                 {
-                    propertyValue = property.GetValue(entity, null).ToString();
+                    parameters.Add($"@{propertyName}", propertyValue, DbType.String);
                 }
-                dynamicParameters.Add($"@{propertyName}", propertyValue);
-            }
-            return dynamicParameters;
+                else if (propertyType == typeof(bool) || propertyType == typeof(bool?))
+                {
+                    var dbValue = ((bool)propertyValue == true ? 1 : 0);
+                    parameters.Add($"@{propertyName}", dbValue, DbType.Int32);
+                }
+                else
+                {
+                    parameters.Add($"@{propertyName}", propertyValue);
+                }
 
+            }
+            return parameters;
+
+        }
+
+        public TEntity GetEntityByProperty(TEntity entity, PropertyInfo property)
+        {
+            var propertyName = property.Name;
+            var propertyValue =property.GetValue(entity);
+            var keyValue = entity.GetType().GetProperty($"{_tableName}Id").GetValue(entity);
+            var query = string.Empty;
+            if(entity.EntityState==EntityState.AddNew)
+            {
+                query = $"SELECT *FROM {_tableName} WHERE {propertyName}='{propertyValue}'";
+            }    
+            else if(entity.EntityState == EntityState.Update)
+            {
+                query = $"SELECT *FROM {_tableName} WHERE {propertyName}='{propertyValue}' AND {_tableName}Id <> '{keyValue}'";
+            }
+            else
+            {
+                return null;
+            }
+            var entityReturn = _dbConnection.Query<TEntity>(query, commandType: CommandType.Text).FirstOrDefault();
+            return entityReturn;
         }
     }
 }

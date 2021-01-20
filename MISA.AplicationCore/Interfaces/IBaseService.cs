@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.AplicationCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,20 +25,20 @@ namespace MISA.AplicationCore.Interfaces
         /// <param name="entity"></param>
         /// <returns></returns>
 
-        int Add(TEntity entity);
+        ServiceResult Add(TEntity entity);
 
         /// <summary>
         /// Cập nhật dữ liệu
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        int Update(TEntity entity);
+        ServiceResult Update(TEntity entity);
         /// <summary>
         /// Xóa dữ liệu
         /// </summary>
         /// <param name="entityId"></param>
         /// <returns></returns>
 
-        int Delete(Guid entityId);
+        ServiceResult Delete(Guid entityId);
     }
 }

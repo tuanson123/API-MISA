@@ -1,12 +1,13 @@
 ﻿using MISA.AplicationCore.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MISACukCuk.AplicationCore.Entities
 {
-    public class Customer
+    public class Customer:BaseEntity
     {
         #region Declare
         #endregion
@@ -24,17 +25,20 @@ namespace MISACukCuk.AplicationCore.Entities
         /// <summary>
         /// Mã khách hàng
         /// </summary>
-        [CheckDuplicate]
+       
         [Requied]
+        [DisplayName("Mã khách hàng")]
         public string CustomerCode { get; set; }
 
         /// <summary>
         /// Họ và tên
         /// </summary>
+        [DisplayName("Họ và tên khách hàng")]
         public string FullName { get; set; }
         /// <summary>
         /// Gioi tính 0-nữ 1-nam 2-khác
         /// </summary>
+        [DisplayName("Gioi tính khách hàng")]
         public int? Gender { get; set; }
         /// <summary>
         /// Địa chỉ
@@ -51,10 +55,13 @@ namespace MISACukCuk.AplicationCore.Entities
         /// <summary>
         /// Số điện thoại
         /// </summary>
+        [CheckDuplicate]
+        [DisplayName("Số điện thoại")]
         public string PhoneNumber { get; set; }
         /// <summary>
         /// Mã nhóm khách hàng
         /// </summary>
+        
         public Guid? CustomeGroupId { get; set; }
 
         /// <summary>
