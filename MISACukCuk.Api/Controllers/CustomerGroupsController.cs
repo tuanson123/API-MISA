@@ -49,7 +49,7 @@ namespace MISACukCuk.Api.Controllers
             var dynamicParametes = new DynamicParameters();
             dynamicParametes.Add("@CustomerGroupId", id);
             //lấy dữ liệu từ database
-            var customerGroup = _dbConnection.Query<CustomerGroup>("proc_getcustomerGroupById", commandType: CommandType.StoredProcedure).FirstOrDefault();
+            var customerGroup = _dbConnection.Query<CustomerGroup>("Proc_GetCustomerGroupById", commandType: CommandType.StoredProcedure).FirstOrDefault();
             //trả dữ liệu cho client
             return Ok(customerGroup);
         }

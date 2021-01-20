@@ -17,8 +17,8 @@ namespace MISA.Infarstructure
         //Khai báo biến
         IConfiguration _configuration;
         string _connectionString = string.Empty;
-        IDbConnection _dbConnection = null;
-        string _tableName;
+        protected IDbConnection _dbConnection = null;
+        protected string _tableName;
         #endregion
         public BaseRepository(IConfiguration configuration)
         {
@@ -44,7 +44,7 @@ namespace MISA.Infarstructure
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TEntity> GetEntities()
+        public virtual IEnumerable<TEntity> GetEntities()
         {
             //Lấy dữ liệu data base
             var entities = _dbConnection.Query<TEntity>($"Proc_Get{_tableName}s", commandType: CommandType.StoredProcedure);
@@ -64,7 +64,7 @@ namespace MISA.Infarstructure
         private DynamicParameters MappingDbType(TEntity entity)
         {
             var properties = entity.GetType().GetProperties();
-            var parameters = new DynamicParameters();
+            DynamicParameters dynamicParameters = new DynamicParameters();
             foreach (var property in properties)
             {
                 var propertyName = property.Name;
@@ -73,9 +73,9 @@ namespace MISA.Infarstructure
                 {
                     propertyValue = property.GetValue(entity, null).ToString();
                 }
-                parameters.Add($"@{propertyName}", propertyValue);
+                dynamicParameters.Add($"@{propertyName}", propertyValue);
             }
-            return parameters;
+            return dynamicParameters;
 
         }
     }

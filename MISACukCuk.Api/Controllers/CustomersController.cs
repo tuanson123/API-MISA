@@ -23,8 +23,8 @@ namespace MISACukCuk.Api.Controllers
    
     public class CustomersController : BaseEntityController<Customer>
     {
-        IBaseService<Customer> _baseService;
-        public CustomersController(IBaseService<Customer> baseService):base(baseService)
+        ICustomerService _baseService;
+        public CustomersController(ICustomerService baseService):base(baseService)
         {
             _baseService = baseService;
         }

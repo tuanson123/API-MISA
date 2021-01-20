@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.AplicationCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,10 +19,13 @@ namespace MISACukCuk.AplicationCore.Entities
         /// <summary>
         /// Khóa chính
         /// </summary>
+        [PrimaryKey]
         public Guid CustomerId { get; set; }
         /// <summary>
         /// Mã khách hàng
         /// </summary>
+        [CheckDuplicate]
+        [Requied]
         public string CustomerCode { get; set; }
 
         /// <summary>

@@ -13,104 +13,17 @@ using System.Reflection;
 
 namespace MISA.Infarstructure
 {
-    public class CustomerRepository : ICustomerRepository
+    public class CustomerRepository :BaseRepository<Customer>, ICustomerRepository
     {
-        #region Declare
-        //Khai báo biến
-        IConfiguration _configuration;
-        string _connectionString = string.Empty;
-        IDbConnection _dbConnection = null;
-        #endregion
-
-        public CustomerRepository(IConfiguration configuration)
+        public CustomerRepository(IConfiguration configuration):base(configuration)
         {
-            _configuration = configuration;
-            _connectionString = configuration.GetConnectionString("MISACukCukConnectionString");
-            _dbConnection = new MySqlConnection(_connectionString);
-        }    
-        #region method
-        public int AddCustomer(Customer customer)
-        {
-            //Khởi tạo kết nối với database
-            var parameters = MappingDbType(customer);
 
-            //Thực hiện câu lệnh truy vấn thêm mới vào database
-            var res = _dbConnection.Execute("Proc_InsertCustomer", parameters, commandType: CommandType.StoredProcedure);
-            //Trả dữ liệu cho client
-
-            return res;
         }
-
-        
-
-        public int DeleteCustomer(Guid customerId)
-        {
-            var res = _dbConnection.Execute("Proc_DeleteCustomerById",new { CustomerId=customerId.ToString()}, commandType: CommandType.StoredProcedure);
-            return res;
-        }
-
         public Customer GetCustomerByCode(string customerCode)
         {
-           
+            var customerDulicate = _dbConnection.Query<Customer>($"select *from Customer where CustomerCode='{customerCode}'", commandType: CommandType.Text).FirstOrDefault();
+            return customerDulicate;
             
-            var res = _dbConnection.Query<Customer>("Proc_GetCustomerByCode", new { CustomerCode = customerCode }, commandType: CommandType.StoredProcedure).FirstOrDefault();
-            return res;
         }
-
-        public Customer GetCustomerById(Guid customerId)
-        {
-         
-            //Lấy dữ liệu data base
-            var customers = _dbConnection.Query<Customer>("Proc_GetCustomerById",new { CustomerId= customerId.ToString() }, commandType: CommandType.StoredProcedure).FirstOrDefault();
-            //Trả về dữ liệu
-            return customers;
-        }
-
-        public IEnumerable<Customer> GetCustomers()
-        {
-            //Kết nối tới CSDL
-
-            var connectionString = _configuration.GetConnectionString("MISACukCukConnectionString");
-           
-            //Lấy dữ liệu data base
-            var customers = _dbConnection.Query<Customer>("Proc_GetCustomers", commandType: CommandType.StoredProcedure);
-            //Trả về dữ liệu
-            return customers;
-        }
-
-        public int UpdateCustomer(Customer customer)
-        {   //Khởi tạo kết nối với databaseClass1.cs
-            var parameters=MappingDbType(customer);
-             //Thực hiện câu lệnh truy vấn thêm mới vào database
-            var res = _dbConnection.Execute("Proc_UpdateCustomer", parameters ,commandType: CommandType.StoredProcedure);
-            //Trả dữ liệu cho client
-
-            return res;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        private DynamicParameters MappingDbType<TEntity>(TEntity entity)
-        {
-            var properties = entity.GetType().GetProperties();
-            var parameters = new DynamicParameters();
-            foreach (var property in properties)
-            {
-                var propertyName = property.Name;
-                var propertyValue = property.GetValue(entity);
-                if (property.PropertyType == typeof(Guid) || property.PropertyType == typeof(Guid?))
-                {
-                    propertyValue = property.GetValue(entity, null).ToString();
-                }
-                parameters.Add($"@{propertyName}", propertyValue);
-            }
-            return parameters;
-
-        }
-
-        #endregion
     }
 }

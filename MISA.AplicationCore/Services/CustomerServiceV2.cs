@@ -11,27 +11,37 @@ namespace MISA.AplicationCore
 {
     public class CustomerServiceV2 : ICustomerService
     {
-        public ServiceResult AddCustomer(Customer customer)
+        public int Add(Customer entity)
         {
             throw new NotImplementedException();
         }
 
-        public ServiceResult DeleteCustomer(Guid customerId)
+        public int Delete(Guid entityId)
         {
             throw new NotImplementedException();
         }
 
-        public Customer GetCustomerById(Guid customerId)
+        public IEnumerable<Customer> GetCustomerPaging(int limit, int offset)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<Customer> GetCustomersByGroup(Guid groupId)
         {
             throw new NotImplementedException();
         }
 
-        public ServiceResult UpdateCustomer(Customer customer)
+        public IEnumerable<Customer> GetEntities()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Customer GetEntityId(Guid entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(Customer entity)
         {
             throw new NotImplementedException();
         }
