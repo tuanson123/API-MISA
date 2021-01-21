@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using MISA.AplicationCore.Entities;
 using MISA.AplicationCore.Enums;
 using MISA.AplicationCore.Interfaces;
+using MISACukCuk.AplicationCore.Entities;
+using MISACukCuk.Entities.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -32,6 +34,17 @@ namespace MISA.Infarstructure
         }
         public int Add(TEntity entity)
         {
+            var newGroup = new CustomerGroup()
+            {
+                CustomerGroupId = new Guid(),
+                CustomerGroupName = "Nhóm khác hàng MISA",
+                Desciption = "Mô tả của nhóm khách hàng MISA"
+            };
+            var customer1 = (entity as Customer);
+            var customer2 = (entity as Customer);
+            var customer3 = (entity as Customer);
+            var customer4 = (entity as Customer);
+
             //Khởi tạo kết nối với database
             var parameters = MappingDbType(entity);
 
@@ -44,7 +57,17 @@ namespace MISA.Infarstructure
 
         public int Delete(Guid customerId)
         {
-            throw new NotImplementedException();
+            
+             
+            var res = 0;
+            _dbConnection.Open();
+            using (var transaction = _dbConnection.BeginTransaction())
+            {
+                var sqlQuery = $"DELETE FROM Customer WHERE CustomerCode='KH466213';";
+                res = _dbConnection.Execute(sqlQuery, commandType: CommandType.Text);
+                transaction.Commit();
+            }
+            return res;
         }
 
         public virtual IEnumerable<TEntity> GetEntities()
@@ -55,6 +78,13 @@ namespace MISA.Infarstructure
             return entities;
         }
 
+        public virtual IEnumerable<TEntity> GetEntities(string storeName)
+        {
+            //Lấy dữ liệu data base
+            var entities = _dbConnection.Query<TEntity>($"storeName", commandType: CommandType.StoredProcedure);
+            //Trả về dữ liệu
+            return entities;
+        }
         public TEntity GetEntityId(Guid customerId)
         {
             throw new NotImplementedException();

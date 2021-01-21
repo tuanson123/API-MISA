@@ -61,8 +61,15 @@ namespace MISACukCuk.Api.Controllers
         {
 
             var serviceResult = _baseService.Add(entity);
-
-            return Ok(serviceResult);
+            if(serviceResult.MISACode==MISA.AplicationCore.Enums.MISACode.NotValid)
+            {
+                return BadRequest(serviceResult);
+            }
+            else
+            {
+                return Ok(serviceResult);
+            }
+         
 
         }
 
@@ -84,8 +91,15 @@ namespace MISACukCuk.Api.Controllers
                 keyProperty.SetValue(entity,id);
 
             }
-            var rowAffects = _baseService.Update(entity);
-            return Ok(rowAffects);
+            var serviceResult = _baseService.Update(entity);
+            if (serviceResult.MISACode == MISA.AplicationCore.Enums.MISACode.NotValid)
+            {
+                return BadRequest(serviceResult);
+            }
+            else
+            {
+                return Ok(serviceResult);
+            }
         }
 
         // DELETE api/<CustomersController>/5

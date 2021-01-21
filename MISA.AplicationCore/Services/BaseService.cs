@@ -2,10 +2,7 @@
 using MISA.AplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MISA.AplicationCore.Services
 {
@@ -23,6 +20,7 @@ namespace MISA.AplicationCore.Services
             entity.EntityState = Enums.EntityState.AddNew;
             //Thực hiện validate:
             var isValidate = Validate(entity);
+               
             if(isValidate==true)
             {
                 _serviceResult.Data = _baseRepository.Add(entity);
@@ -83,7 +81,12 @@ namespace MISA.AplicationCore.Services
             foreach(var property in properties)
             {
                 var propertyValue = property.GetValue(entity);
-                var displayName = property.GetCustomAttributes(typeof(DisplayNameAttribute), true);
+                var displayName = string.Empty;
+                var displayNameAttributes = property.GetCustomAttributes(typeof(DisplayName), true);
+                if(displayNameAttributes.Length>0)
+                {
+                    displayName = (displayNameAttributes[0] as DisplayName).Name;
+                }    
                 //Kiểm tra xem có atribute cần phải validate không:
                 if (property.IsDefined(typeof(Requied),false))
                 {
@@ -111,11 +114,39 @@ namespace MISA.AplicationCore.Services
                         _serviceResult.Messenger = "Dữ liệu không hợp lệ";
                     }    
                 }
-               
+
+                if (property.IsDefined(typeof(MaxLengh), false))
+                {
+                    //Lấy độ dài hiện tại:
+                    var attributeMaxLength = property.GetCustomAttributes(typeof(MaxLengh), true)[0];
+
+                    var length = (attributeMaxLength as MaxLengh).Value;
+                    var msg= (attributeMaxLength as MaxLengh).ErrorMsg;
+                    if(propertyValue.ToString().Trim().Length>length)
+                    {
+                        isValidate = false;
+                        mesArrayError.Add(msg??$"Thông tin vượt quá {length} kí tự cho phép.");
+                        _serviceResult.MISACode = Enums.MISACode.NotValid;
+                        _serviceResult.Messenger = "Dữ liệu không hợp lệ";
+                    }    
+                }
+
             }
             _serviceResult.Data = mesArrayError;
-
+            if (isValidate == true)
+            {
+                isValidate = ValidateCustom(entity);
+            }
             return isValidate;
+        }
+        /// <summary>
+        /// Hàm thực hiện kiểm tra  nghiệp vụ
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        protected virtual bool ValidateCustom(TEntity entity)
+        {
+            return true;
         }
     }
 }
