@@ -14,6 +14,7 @@ namespace MISA.AplicationCore.Interfaces
         /// </summary>
         /// <returns></returns>
         IEnumerable<TEntity> GetEntities();
+        IEnumerable<TEntity> GetEntities(string storeName);
         /// <summary>
         /// Lấy dữ liệu theo ID
         /// </summary>
