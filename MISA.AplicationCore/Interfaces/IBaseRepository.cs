@@ -40,6 +40,6 @@ namespace MISA.AplicationCore.Interfaces
         /// <returns></returns>
 
         int Delete(Guid customerId);
-        TEntity GetEntityByProperty(PropertyInfo property);
+        TEntity GetEntityByProperty(TEntity entity,PropertyInfo property);
     }
 }
