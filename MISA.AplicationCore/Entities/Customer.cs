@@ -1,7 +1,6 @@
 ﻿using MISA.AplicationCore.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,6 +27,7 @@ namespace MISACukCuk.AplicationCore.Entities
        
         [Requied]
         [DisplayName("Mã khách hàng")]
+        [MaxLengh(20,"Mã khách hàng không vượt quá 20 kí tự")]
         public string CustomerCode { get; set; }
 
         /// <summary>
@@ -58,6 +58,7 @@ namespace MISACukCuk.AplicationCore.Entities
         [CheckDuplicate]
         [DisplayName("Số điện thoại")]
         public string PhoneNumber { get; set; }
+
         /// <summary>
         /// Mã nhóm khách hàng
         /// </summary>
