@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace MISA.Infarstructure
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity:BaseEntity
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity>,IDisposable where TEntity:BaseEntity
     {
         #region Declare
         //Khai báo biến
@@ -34,37 +34,35 @@ namespace MISA.Infarstructure
         }
         public int Add(TEntity entity)
         {
-            var newGroup = new CustomerGroup()
+            var rowAffects = 0;
+            _dbConnection.Open();
+            using (var transaction = _dbConnection.BeginTransaction())
             {
-                CustomerGroupId = new Guid(),
-                CustomerGroupName = "Nhóm khác hàng MISA",
-                Desciption = "Mô tả của nhóm khách hàng MISA"
-            };
-            var customer1 = (entity as Customer);
-            var customer2 = (entity as Customer);
-            var customer3 = (entity as Customer);
-            var customer4 = (entity as Customer);
-
-            //Khởi tạo kết nối với database
-            var parameters = MappingDbType(entity);
-
-            //Thực hiện câu lệnh truy vấn thêm mới vào database
-            var res = _dbConnection.Execute($"Proc_Insert{_tableName}", parameters, commandType: CommandType.StoredProcedure);
-            //Trả dữ liệu cho client
-
-            return res;
+                try
+                {
+                    var parameters = MappingDbType(entity);
+                    // Thực hiện thêm khách hàng:
+                    rowAffects = _dbConnection.Execute($"Proc_Insert{_tableName}", parameters, commandType: CommandType.StoredProcedure);
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                }
+            }
+            // Trả về kết quả (số bản ghi thêm mới được)
+            return rowAffects;
         }
 
         public int Delete(Guid customerId)
         {
-            
-             
+
+
             var res = 0;
             _dbConnection.Open();
             using (var transaction = _dbConnection.BeginTransaction())
             {
-                var sqlQuery = $"DELETE FROM Customer WHERE CustomerCode='KH466213';";
-                res = _dbConnection.Execute(sqlQuery, commandType: CommandType.Text);
+                res = _dbConnection.Execute($"DELETE FROM {_tableName} WHERE {_tableName}Id = '{customerId.ToString()}'", commandType: CommandType.Text);
                 transaction.Commit();
             }
             return res;
@@ -149,6 +147,12 @@ namespace MISA.Infarstructure
             }
             var entityReturn = _dbConnection.Query<TEntity>(query, commandType: CommandType.Text).FirstOrDefault();
             return entityReturn;
+        }
+
+        public void Dispose()
+        {
+            if (_dbConnection.State == ConnectionState.Open)
+                _dbConnection.Close();
         }
     }
 }

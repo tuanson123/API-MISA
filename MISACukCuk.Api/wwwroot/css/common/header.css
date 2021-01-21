@@ -1,0 +1,52 @@
+﻿.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 221px);
+    height: 60px;
+    border-bottom: 1px solid #bbbbbb;
+    float:left;
+}
+    .header .header-select {
+        padding: 16px;
+        font-size: 16px;
+    }
+
+    .header .header-select select {
+        height: 40px;
+        width: 200px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .header .account-infor {
+        margin: auto 0;
+        display: flex;
+        position: absolute;
+        right: 16px;
+        align-items: center;
+    }
+
+        .header .account-infor .account-img {
+            background-image: url('../../content/icon/avatar-default.png');
+            width: 30px;
+            height: 30px;
+            background-size: contain;
+            margin-right: 16px;
+        }
+
+        .header .account-infor .account-option {
+            background-image: url('../../content/icon/option.png');
+            width: 30px;
+            height: 30px;
+            background-size: contain;
+            margin-left: 16px;
+        }
+
+        .header .account-infor .account-name {
+            margin: auto 0;
+        }
+

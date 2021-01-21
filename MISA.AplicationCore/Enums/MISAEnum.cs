@@ -20,7 +20,8 @@ namespace MISA.AplicationCore.Enums
             /// <summary>
             /// Thành công
             /// </summary>
-            Success = 200
+            Success = 200,
+            Exception=500
         }
     /// <summary>
     /// Xác định trạng thái của object
@@ -30,6 +31,7 @@ namespace MISA.AplicationCore.Enums
             AddNew=1,
             Update=2,
             Delete=3,
+
         }
     
 }
