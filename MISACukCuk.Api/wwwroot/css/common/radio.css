@@ -1,0 +1,15 @@
+﻿input[type='radio']:checked:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    position: relative;
+    background-image: url('/content/icon/radio.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    left: -4px;
+    top: -3px;
+}

@@ -55,7 +55,9 @@
             background-color: #e5e5e5;
             color: #000000;
         }
-
+.navbar-content a{
+    text-decoration:none;
+}
 .nav-item .nav-item-icon {
     width: 20px;
     height: 20px;

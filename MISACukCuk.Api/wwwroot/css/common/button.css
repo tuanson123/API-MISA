@@ -83,6 +83,12 @@
     }
     .btn-cancel{
         margin-right: 10px;
+        background-color:gainsboro;
+        color:black;
+
+    }
+    .btn-cancel:hover{
+        background-color:darkgrey;
     }
 
 

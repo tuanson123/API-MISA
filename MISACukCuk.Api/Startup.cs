@@ -53,7 +53,7 @@ namespace MISACukCuk.Api
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICustomerService,CustomerService>();
-            services.AddScoped<IEmployeeRepository,EmployeeRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddSwaggerGen(c =>
             {

@@ -78,9 +78,9 @@ namespace MISACukCuk.AplicationCore.Entities
         /// </summary>
         public string CompanyTaxCode { get; set; }
         /// <summary>
-        /// Ngừng theo dõi(true ngừng theo dõi, false-ngược lại)
+        /// Tiền lương
         /// </summary>
-
+        public double Salary { get; set; }
 
         public DateTime? CreatedDate { get; set; }
         public string CreatedBy { get; set; }

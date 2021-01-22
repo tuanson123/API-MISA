@@ -16,7 +16,9 @@
     <link href="../css/common/main.css" rel="stylesheet" />
     <link href="../css/common/navbar.css" rel="stylesheet" />
     <link href="../css/page/employee.css" rel="stylesheet" />
+    <link href="../css/page/customer.css" rel="stylesheet" />
     <link href="../css/common/content.css" rel="stylesheet" />
+    <link href="../css/common/radio.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar">
@@ -133,72 +135,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                    <!--<tr>
-                        <td>NV000001</td>
-                        <td>Đỗ Tuấn Sơn</td>
-                        <td>NAM</td>
-                        <td>19/08/1998</td>
-                        <td>012346789</td>
-                        <td>xã Thủy Triều, huyên Thủy Nguyên,TP.Hải Phòng</td>
-                    </tr>
-                    <tr>
-                        <td>NV000001</td>
-                        <td>Đỗ Tuấn Tú</td>
-                        <td>NAM</td>
-                        <td>19/08/1998</td>
-                        <td>012346789</td>
-                        <td>xã Thủy Triều, huyên Thủy Nguyên,TP.Hải Phòng</td>
-                    </tr>
-                    <tr>
-                        <td>NV000001</td>
-                        <td>Hoàng Thị Bích Ngọc</td>
-                        <td>NAM</td>
-                        <td>19/08/1998</td>
-                        <td>012346789</td>
-                        <td>xã Thủy Triều, huyên Thủy Nguyên,TP.Hải Phòng</td>
-                    </tr>
-                    <tr>
-                        <td>NV000001</td>
-                        <td>Đỗ Tuấn Sơn</td>
-                        <td>NAM</td>
-                        <td>19/08/1998</td>
-                        <td>012346789</td>
-                        <td>xã Thủy Triều, huyên Thủy Nguyên,TP.Hải Phòng</td>
-                    </tr>
-                    <tr>
-                        <td>NV000001</td>
-                        <td>Đỗ Tuấn Sơn</td>
-                        <td>NAM</td>
-                        <td>19/08/1998</td>
-                        <td>012346789</td>
-                        <td>xã Thủy Triều, huyên Thủy Nguyên,TP.Hải Phòng</td>
-                    </tr>
-                    <tr>
-                        <td>NV000001</td>
-                        <td>Đỗ Tuấn Sơn</td>
-                        <td>NAM</td>
-                        <td>19/08/1998</td>
-                        <td>012346789</td>
-                        <td>xã Thủy Triều, huyên Thủy Nguyên,TP.Hải Phòng</td>
-                    </tr>
-                    <tr>
-                        <td>NV000001</td>
-                        <td>Đỗ Tuấn Sơn</td>
-                        <td>NAM</td>
-                        <td>19/08/1998</td>
-                        <td>012346789</td>
-                        <td>xã Thủy Triều, huyên Thủy Nguyên,TP.Hải Phòng</td>
-                    </tr>
-                    <tr>
-                        <td>NV000001</td>
-                        <td>Đỗ Tuấn Sơn</td>
-                        <td>NAM</td>
-                        <td>19/08/1998</td>
-                        <td>012346789</td>
-                        <td>xã Thủy Triều, huyên Thủy Nguyên,TP.Hải Phòng</td>
-                    </tr>-->
-
                 </tbody>
             </table>
         </div>
@@ -230,56 +166,178 @@
         <div class="dialog-modal"></div>
         <div class="dialog-content employee">
             <div class="dialog-header">
-                <div class="dialog-header-title">THÔNG TIN KHÁCH HÀNG</div>
+                <div class="dialog-header-title">THÔNG TIN NHÂN VIÊN</div>
                 <div class="dialog-header-close" id="btnClose">
                     <button></button>
                 </div>
             </div>
-            <div class="dialog-body">
+            <div class="dialog-body" style="display:flex; padding-top:24px;">
                 <div class="dialog-body dialog-img">
                     <div class="img"></div>
-                    <div class="text">Vui lòng chọn ảnh có định dạng<br>.jpg,.jpeg,.png,.gif</div>
+                    <div class="text">(Vui lòng chọn ảnh có định dạng<br>.jpg,.jpeg,.png,.gif)</div>
                 </div>
-                <div class="dialog-body dialog-infor-one">
-                    <div class="m-row">
-                        <div class="m-label">Mã khách hàng(<span>*</span>)</div>
-                        <div class="m-control"><input fieldName="CustomerCode" id="txtCustomerCode" type="text" class="input-required" /></div>
-                    </div>
-                    <div class="m-row">
-                        <div class="m-label">Mã thẻ thành viên</div>
-                        <div class="m-control"><input fieldName="MemberCardCode" id="txtMemberCardCode" type="text" /></div>
-                    </div>
-                    <div class="m-row">
-                        <div class="m-label">Ngày sinh</div>
-                        <div class="m-control">
-                            <input fieldname="dateofbirth" id="txtdateofbirth" type="text" placeholder="mm/dd/yyyy" class="dialog-body-icon" />
 
+                <div class="dialog-body private">
+                    <div class="group-label-info">
+                        A. THÔNG TIN CHUNG:
+                    </div>
+                    <hr class="hr-group-label" />
+                    <div class="dialog-body flex">
+                        <div class="dialog-body dialog-infor-one">
+                            <div class="m-row">
+                                <div class="m-label">Mã nhân viên(<span>*</span>)</div>
+                                <div class="m-control"><input fieldName="EmployeeCode" id="txtEmployeeCode" type="text" class="input-required" /></div>
+                            </div>
                         </div>
-
-                    </div>
-                </div>
-                <div class="dialog-body dialog-infor-two">
-                    <div class="m-row">
-                        <div class="m-label">Họ và tên(<span>*</span>)</div>
-                        <div class="m-control"><input fieldName="FullName" id="txtFullName" type="text" class="input-required" /></div>
-                    </div>
-                    <div class="m-row">
-                        <div class="m-label">Nhóm khách hàng</div>
-                        <div class="m-control dialog-select">
-                            <select id="cbxCustomerGroup" fieldName="CustomerGroupName" fieldValue="CustomerGroupId" api="/api/customergroups">
-                                <!--<option value="0cb5da7c-59cd-4953-b17e-c9adc9161663">Khach vip</option>
-                                <option value="7a0b757e-41eb-4df6-c6f8-494a84b910f4">Khách thường</option>
-                                <option value="19165ed7-212e-21c4-0428-030d4265475f">Khách vãng lai</option>-->
-                            </select>
+                        <div class="dialog-body dialog-infor-two">
+                            <div class="m-row">
+                                <div class="m-label">Họ và tên(<span>*</span>)</div>
+                                <div class="m-control"><input fieldName="FullName" id="txtFullName" type="text" class="input-required" /></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="m-row">
-                        <div class="m-label">Gioi tính</div>
-                        <div class="m-control"><div class="m-gender"><input fieldName="Gender" type="radio" name="gender" value="1" />Nam<input fieldName="Gender" type="radio" name="gender" value="0" checked />Nữ</div></div>
+
+                    <div class="dialog-body flex">
+                        <div class="dialog-body dialog-infor-one">
+                            <div class="m-row">
+                                <div class="m-label">Ngày sinh</div>
+                                <div class="m-control">
+                                    <input fieldname="DateOfbirth" id="txtDateOfbirth" type="date" placeholder="mm/dd/yyyy" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-body dialog-infor-two">
+                            <div class="m-row">
+                                <div class="m-label">Gioi tính</div>
+                                <div class="m-control dialog-select">
+                                    <select id="cbxGender" fieldName="Gender" fieldValue="Gender" api="/api/employeegroups">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-body flex">
+                        <div class="dialog-body dialog-infor-one">
+                            <div class="m-row">
+                                <div class="m-label">Số CMTND/Căn cước(<span>*</span>)</div>
+                                <div class="m-control"><input fieldName="CitizenID" id="txtCitizenID" type="text" class="input-required" /></div>
+                            </div>
+                        </div>
+                        <div class="dialog-body dialog-infor-two">
+                            <div class="m-row">
+                                <div class="m-row">
+                                    <div class="m-label">Ngày cấp</div>
+                                    <div class="m-control">
+                                        <input fieldname="DateOfID" id="txtDateOfID" type="date" placeholder="mm/dd/yyyy" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-body flex">
+                        <div class="dialog-body dialog-infor-one">
+                            <div class="m-row">
+                                <div class="m-label">Nơi cấp</div>
+                                <div class="m-control"><input fieldName="PlaceOfID" id="txtPlaceOfID" type="text" class="input-required" /></div>
+                            </div>
+                        </div>
+                        <div class="dialog-body dialog-infor-two">
+                            <div class="m-row">
+                                <div class="m-row">
+                                    <div class="m-label">Email(<span>*</span>)</div>
+                                    <div class="m-control"><input fieldName="Email" id="txtEmail" type="text" class="input-required" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-body flex">
+                        <div class="dialog-body dialog-infor-one">
+                            <div class="m-row">
+                                <div class="m-label">Email(<span>*</span>)</div>
+                                <div class="m-control"><input fieldName="Email" id="txtEmail" type="text" class="input-required" /></div>
+                            </div>
+                        </div>
+                        <div class="dialog-body dialog-infor-two">
+                            <div class="m-row">
+                                <div class="m-label">Số điện thoại(<span>*</span>)</div>
+                                <div class="m-control"><input fieldName="PhoneNumber" id="txtPhoneNumber" type="text" class="input-required" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group-label-info" style="margin-top:30px">
+                        B. THÔNG TIN CÔNG VIỆC:
+                    </div>
+                    <hr class="hr-group-label" />
+
+                    <div class="dialog-body flex">
+                        <div class="dialog-body dialog-infor-one">
+                            <div class="m-row">
+                                <div class="m-label">Vị trí</div>
+                                <div class="m-control dialog-select">
+                                    <select id="cbxPosition" fieldName="Gender" fieldValue="Position" api="/api/employeegroups">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-body dialog-infor-two">
+                            <div class="m-row">
+                                <div class="m-label">Phòng ban</div>
+                                <div class="m-control dialog-select">
+                                    <select id="cbxDepartment" fieldName="Gender" fieldValue="Department" api="/api/employeegroups">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-body flex">
+                        <div class="dialog-body dialog-infor-one">
+                            <div class="m-row">
+                                <div class="m-label">Mã số thuế cá nhân</div>
+                                <div class="m-control">
+                                    <div class="m-control"><input fieldName="PersonalTaxCode" id="txtPersonalTaxCode" type="text" class="input-required" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-body dialog-infor-two">
+                            <div class="m-row">
+                                <div class="m-label">Mức lương cơ bản</div>
+                                <div class="m-control">
+                                    <div class="m-control"><input fieldName="Salary" id="txtSalary" type="text" class="input-required" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialog-body flex">
+                        <div class="dialog-body dialog-infor-one">
+                            <div class="m-row">
+                                <div class="m-label">Ngày gia nhập(<span>*</span>)</div>
+                                <div class="m-control">
+                                    <input fieldname="DateOfJoining" id="txtDateOfJoining" type="date" placeholder="mm/dd/yyyy" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-body dialog-infor-two">
+                            <div class="m-row">
+                                <div class="m-row">
+                                    <div class="m-label">Tình trạng công việc</div>
+                                    <div class="m-control dialog-select">
+                                        <select id="cbxWorkStatus" fieldName="WorkStatus" fieldValue="Department" api="/api/employeegroups">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            
+
             <div class="dialog-footer">
                 <div class="dialog-footer-botton">
                     <button class="m-btn btn-cancel" id="btnCancel">Huỷ</button>
@@ -291,6 +349,7 @@
         </div>
 
     </div>
+
     <div class="loading">
         <div class="loading-modal">
 
@@ -304,7 +363,5 @@
     <script src="../js/common/base.js"></script>
     <script src="../js/page/employee.js"></script>
 
-
-   
 </body>
 </html>

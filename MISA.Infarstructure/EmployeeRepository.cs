@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MISA.Infarstructure
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     {
         #region Declare
         //Khai báo biến
@@ -20,7 +20,7 @@ namespace MISA.Infarstructure
         string _connectionString = string.Empty;
         IDbConnection _dbConnection = null;
         #endregion
-        public EmployeeRepository(IConfiguration configuration)
+        public EmployeeRepository(IConfiguration configuration) : base (configuration)
         {
             _configuration = configuration;
             _connectionString = configuration.GetConnectionString("MISACukCukConnectionString");

@@ -7,6 +7,7 @@
 .m-row{
     margin-top:16px;
 }
+
 .m-label{
     margin-bottom:4px;
 }
@@ -26,6 +27,17 @@ input.border-red{
 .loading{
     display:none;
 }
+.group-label-info {
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.hr-group-label {
+    width: 70px;
+    margin-left: 0;
+    border: 2px solid #019160;
+}
+
 .loading-icon{
     position: fixed;
     top: calc(50% - 15px);

@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Services
 {
-    public class EmployeeService : IEmployeeService
+    public class EmployeeService : BaseService<Employee>, IEmployeeService
     {
         IEmployeeRepository _employeeRepository;
-        public EmployeeService(IEmployeeRepository employeeRepository)
+        public EmployeeService(IEmployeeRepository employeeRepository) : base(employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }    

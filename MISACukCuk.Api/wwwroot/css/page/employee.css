@@ -1,4 +1,16 @@
 ﻿.grid-employee {
     height: calc(100vh - 246px);
 }
+.dialog-content.employee {
+    width: 800px;
+    height: 824px;
+    top: calc(50% - 430px);
+   
+}
 
+.dialog-content.employee input {
+    width: 250px;
+}
+    .dialog-content.employee select{
+        width:284px;
+    }

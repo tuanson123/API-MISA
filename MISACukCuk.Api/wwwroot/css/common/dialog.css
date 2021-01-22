@@ -63,9 +63,6 @@
             font-weight: bold;
         }
 /*Nội dung form của dialog*/
-.dialog-content .dialog-body {
-    float: left;
-}
 
 .dialog-img .img {
     background-image: url('../../content/img/default-avatar.jpg');
@@ -96,7 +93,14 @@
     text-align: center;
     font-weight: bold;
 }
-
+.dialog-body.flex{
+    display:flex;
+    
+}
+.dialog-body .dialog-img{
+    padding-top:16px;
+    padding-right:16px;
+}
 .dialog-content span {
     color: red;
 }
@@ -105,7 +109,7 @@
     margin-left: 0px;
 }
 .dialog-body .dialog-infor-one {
-    margin-left: 15px;
+
 }
 .dialog-infor-two {
     margin-left: 15px;
@@ -137,7 +141,7 @@
 .dialog-footer-botton {
     display: flex;
     position: absolute;
-    right: 32px;
+    right: 24px;
 }
 
 .btn-cancel {

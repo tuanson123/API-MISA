@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Interfaces
 {
-    public interface IEmployeeRepository
+    public interface IEmployeeRepository : IBaseRepository<Employee>
     {
         /// <summary>
         /// Lấy danh sách nhân viên

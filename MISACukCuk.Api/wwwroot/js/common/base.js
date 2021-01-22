@@ -44,7 +44,7 @@
         $('.loading').show();
         //Lấy dữ liệu nhóm khách hàng
         $.ajax({
-            url: me.host + "/api/customergroups",
+            url: me.host + "/api/v1/CustomerGroups",
             method: "GET"
 
         }).done(function (res) {
@@ -236,17 +236,17 @@
                     $('.loading').hide();
                 })
             })
-            
+
 
         }
         catch (e) {
             console.log(e);
         }
     }
-/**
- * Hàm xử lý khi ấn button lưu dữ liệu
- * CreatedBy:DOTUANSON(1/6/2021)
- * */
+    /**
+     * Hàm xử lý khi ấn button lưu dữ liệu
+     * CreatedBy:DOTUANSON(1/6/2021)
+     * */
     btnSaveOnClick() {
         var me = this;
         //Validate dữ liệu

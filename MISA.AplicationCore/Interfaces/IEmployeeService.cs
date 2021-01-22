@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Interfaces
 {
-    public interface IEmployeeService
+    public interface IEmployeeService :IBaseService<Employee>
     {
         IEnumerable<Employee> GetEmployees();
         Customer GetEmployeeById(Guid employeeId);

@@ -9,7 +9,7 @@ namespace MISA.AplicationCore.Entities
 /// Thông tin nhân viên
 /// CreateBy:DTSON(19/01/2021)
 /// </summary>
-    public class Employee
+    public class Employee:BaseEntity
     {
         /// <summary>
         /// Khóa chính
