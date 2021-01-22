@@ -95,9 +95,9 @@ namespace MISA.AplicationCore.Services
                     if(propertyValue==null)
                     {
                         isValidate = false;
-                        mesArrayError.Add($"Thông tin {displayName} không được phép để trống");
+                        mesArrayError.Add(string.Format(Properties.Resources.Msg_IsNotValid, displayName));
                         _serviceResult.MISACode = Enums.MISACode.NotValid;
-                        _serviceResult.Messenger = "Dữ liệu không hợp lệ";
+                        _serviceResult.Messenger = Properties.Resources.Msg_IsNotValid;
                     }    
                 }
 
@@ -109,9 +109,9 @@ namespace MISA.AplicationCore.Services
                     if(entityDuplicate!=null)
                     {
                         isValidate = false;
-                        mesArrayError.Add($"Thông tin {displayName} đã tồn tại trên hệ thống");
+                        mesArrayError.Add(string.Format(Properties.Resources.Msg_IsNotValid,displayName));
                         _serviceResult.MISACode = Enums.MISACode.NotValid;
-                        _serviceResult.Messenger = "Dữ liệu không hợp lệ";
+                        _serviceResult.Messenger = Properties.Resources.Msg_IsNotValid;
                     }    
                 }
 

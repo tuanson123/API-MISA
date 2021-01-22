@@ -37,3 +37,5 @@ C:\Users\ADMIN\source\repos\tuanson123\API_MISA\MISA.AplicationCore\obj\Debug\ne
 C:\Users\ADMIN\source\repos\tuanson123\API_MISA\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.dll
 C:\Users\ADMIN\source\repos\tuanson123\API_MISA\MISA.AplicationCore\obj\Debug\net5.0\ref\MISA.AplicationCore.dll
 C:\Users\ADMIN\source\repos\tuanson123\API_MISA\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.pdb
+C:\Users\ADMIN\source\repos\tuanson123\API_MISA\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.Properties.Resources.resources
+C:\Users\ADMIN\source\repos\tuanson123\API_MISA\MISA.AplicationCore\obj\Debug\net5.0\MISA.AplicationCore.csproj.GenerateResource.cache

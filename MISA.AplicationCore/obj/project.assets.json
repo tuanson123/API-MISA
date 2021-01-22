@@ -8,23 +8,23 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\dtson\\.nuget\\packages\\": {},
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\MISA.AplicationCore.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\tuanson123\\API_MISA\\MISA.AplicationCore\\MISA.AplicationCore.csproj",
       "projectName": "MISA.AplicationCore",
-      "projectPath": "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\MISA.AplicationCore.csproj",
-      "packagesPath": "C:\\Users\\dtson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dtson\\API_MS\\MISA.AplicationCore\\obj\\",
+      "projectPath": "C:\\Users\\ADMIN\\source\\repos\\tuanson123\\API_MISA\\MISA.AplicationCore\\MISA.AplicationCore.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ADMIN\\source\\repos\\tuanson123\\API_MISA\\MISA.AplicationCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\dtson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
