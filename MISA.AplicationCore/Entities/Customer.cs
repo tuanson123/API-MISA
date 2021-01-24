@@ -8,6 +8,10 @@ namespace MISACukCuk.AplicationCore.Entities
 {
     public class Customer:BaseEntity
     {
+        /// <summary>
+        /// Nhóm khách hàng
+        /// CreateBy:DTSON(01/14/2021)
+        /// </summary>
         #region Declare
         #endregion
 
@@ -82,10 +86,6 @@ namespace MISACukCuk.AplicationCore.Entities
         /// </summary>
         public double Salary { get; set; }
 
-        public DateTime? CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public string ModifiedBy { get; set; }
         #endregion
 
         #region Method

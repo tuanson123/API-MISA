@@ -6,7 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Interfaces
-{
+{/// <summary>
+ /// Khuôn mẫu Interface check nghiệp vụ
+ /// CreateBy:DTSON(19/01/2021)
+ /// </summary>
     public interface IBaseService<TEntity>
     {
         /// <summary>

@@ -13,3 +13,7 @@
     left: -4px;
     top: -3px;
 }
+input[type='radio']{
+    margin-left:16px;
+    margin-right:6px;
+}

@@ -17,7 +17,7 @@ namespace MISA.Infarstructure.Interfaces
     {
         
         /// <summary>
-        /// Lấy thông tin khách hàng theo ID
+        /// Lấy thông tin khách hàng theo mã
         /// </summary>
         /// <returns> khách hàng</returns>
         /// CreateBy:DTSON(1/18/2021)

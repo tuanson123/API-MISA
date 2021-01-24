@@ -138,10 +138,25 @@
   <data name="Enum_WorkStatus_Working" xml:space="preserve">
     <value>Đang làm việc</value>
   </data>
+  <data name="Msg_AddSuccess" xml:space="preserve">
+    <value>Thêm dữ liệu thành công</value>
+  </data>
+  <data name="Msg_DeleteSuscess" xml:space="preserve">
+    <value>Xóa dữ liệu thành công</value>
+  </data>
   <data name="Msg_Duplicate" xml:space="preserve">
-    <value>Thông tin {0} đã có trên hệ thống."</value>
+    <value>Thông tin {0} đã có trên hệ thống</value>
+  </data>
+  <data name="Msg_EmailError" xml:space="preserve">
+    <value>Email sai định dạng</value>
+  </data>
+  <data name="Msg_EmailMaxLenght" xml:space="preserve">
+    <value>Email quá dài</value>
   </data>
   <data name="Msg_IsNotValid" xml:space="preserve">
     <value>Dữ liệu không hợp lệ</value>
+  </data>
+  <data name="Msg_UpdateSuccess" xml:space="preserve">
+    <value>Chỉnh sửa dữ liệu thành công</value>
   </data>
 </root>

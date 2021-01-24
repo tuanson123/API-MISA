@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.AplicationCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace MISACukCuk.Entities.Models
     /// Nhóm khách hàng
     /// CreateBy:DTSON(01/14/2021)
     /// </summary>
-    public class CustomerGroup
+    public class CustomerGroup: BaseEntity
     {
         #region declare
 
@@ -36,12 +37,7 @@ namespace MISACukCuk.Entities.Models
         /// Mô tả
         /// </summary>
         public string Desciption { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public string ModifiedBy { get; set; }
         #endregion
-
 
     }
 }

@@ -14,46 +14,28 @@ namespace MISA.Infarstructure
 {
     public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     {
+        /// <summary>
+        /// Theo tác dữ liệu với nhân viên
+        /// CreateBy:DTSON(19/01/2021)
+        /// </summary>
         #region Declare
         //Khai báo biến
         IConfiguration _configuration;
         string _connectionString = string.Empty;
         IDbConnection _dbConnection = null;
         #endregion
+        //Hàm khởi tạo
         public EmployeeRepository(IConfiguration configuration) : base (configuration)
         {
             _configuration = configuration;
             _connectionString = configuration.GetConnectionString("MISACukCukConnectionString");
             _dbConnection = new MySqlConnection(_connectionString);
-        }    
-        public int AddEmployee(Employee employee)
-        {
-            throw new NotImplementedException();
         }
-
-        public int DeleteEmployee(Guid employeeId)
-        {
-            throw new NotImplementedException();
-        }
-
+        //Lấy ra nhân viên theo mã
         public Employee GetEmployeeByCode(string employeeCode)
         {
-            throw new NotImplementedException();
-        }
-
-        public Employee GetEmployeeById(Guid employeeId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Employee> GetEmployees()
-        {
-            return _dbConnection.Query<Employee>("SELECT *FROM Employee");
-        }
-
-        public int UpdateEmployee(Employee employee)
-        {
-            throw new NotImplementedException();
+            var employeeDulicate = _dbConnection.Query<Employee>($"select *from Employee where employeeCode='{employeeCode}'", commandType: CommandType.Text).FirstOrDefault();
+            return employeeDulicate;
         }
     }
 }

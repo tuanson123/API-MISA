@@ -13,7 +13,10 @@ using MISA.AplicationCore.Enums;
 using MISA.AplicationCore.Services;
 
 namespace MISA.AplicationCore
-{
+{/// <summary>
+ /// nghiệp vụ của khách hàng
+ /// CreateBy:DTSON(19/01/2021)
+ /// </summary>
     public class CustomerService: BaseService<Customer>,ICustomerService
     {
         
@@ -28,23 +31,24 @@ namespace MISA.AplicationCore
 
         #endregion
         #region Method
-
+        //Ghi lại phương thức validate
         protected override bool ValidateCustom(Customer entity)
         {
 
             return true;
         }
+        //Phân trang
         public IEnumerable<Customer> GetCustomerPaging(int limit, int offset)
         {
             throw new NotImplementedException();
         }
-
+        //Lấy phòng ban theo id phòng ban
         public IEnumerable<Customer> GetCustomersByGroup(Guid departmentId)
         {
             throw new NotImplementedException();
         }
 
-        //Sửa khách hàng
+
         #endregion
     }
 }

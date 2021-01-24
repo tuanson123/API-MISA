@@ -124,11 +124,47 @@ namespace MISA.AplicationCore.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thông tin {0} đã có trên hệ thống.&quot;.
+        ///   Looks up a localized string similar to Thêm dữ liệu thành công.
+        /// </summary>
+        internal static string Msg_AddSuccess {
+            get {
+                return ResourceManager.GetString("Msg_AddSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xóa dữ liệu thành công.
+        /// </summary>
+        internal static string Msg_DeleteSuscess {
+            get {
+                return ResourceManager.GetString("Msg_DeleteSuscess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thông tin {0} đã có trên hệ thống.
         /// </summary>
         internal static string Msg_Duplicate {
             get {
                 return ResourceManager.GetString("Msg_Duplicate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email sai định dạng.
+        /// </summary>
+        internal static string Msg_EmailError {
+            get {
+                return ResourceManager.GetString("Msg_EmailError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email quá dài.
+        /// </summary>
+        internal static string Msg_EmailMaxLenght {
+            get {
+                return ResourceManager.GetString("Msg_EmailMaxLenght", resourceCulture);
             }
         }
         
@@ -138,6 +174,15 @@ namespace MISA.AplicationCore.Properties {
         internal static string Msg_IsNotValid {
             get {
                 return ResourceManager.GetString("Msg_IsNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chỉnh sửa dữ liệu thành công.
+        /// </summary>
+        internal static string Msg_UpdateSuccess {
+            get {
+                return ResourceManager.GetString("Msg_UpdateSuccess", resourceCulture);
             }
         }
     }

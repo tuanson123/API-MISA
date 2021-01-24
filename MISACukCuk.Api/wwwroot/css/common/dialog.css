@@ -1,4 +1,4 @@
-﻿.m-dialog {
+.m-dialog {
     display: none;
 }
 
@@ -15,10 +15,10 @@
         padding: 24px;
         position: absolute;
         width: 650px;
-        height: 515px;
+        height: 590px;
         background-color: #ffffff;
         z-index: 1000;
-        top: calc(50% - 200px);
+        top: calc(50% - 310px);
         left: calc(50% - 400px);
         border-radius: 5px;
         font-size: 15px;
@@ -128,7 +128,7 @@
     }
 
 .dialog-content .dialog-footer {
-    height: 50px;
+    height: 60px;
     background-color: gainsboro;
     display: flex;
     position: absolute;
@@ -142,18 +142,21 @@
     display: flex;
     position: absolute;
     right: 24px;
+    justify-content: flex-end;
 }
 
 .btn-cancel {
-    margin-right: 10px;
+
+    width: 80px;
+    display: inline-block;
+    justify-content: center;
 }
 
-.btn-save {
-    width: 90px;
-}
 
 .dialog-footer-botton .btn-save {
-    padding: 0 24px;
+
+    margin-left: 30px;
+    margin-right: 36px;
 }
 
 .dialog-select select {
@@ -163,4 +166,194 @@
     outline: none;
     border-radius: 4px;
     border: 1px solid #bbbbbb;
+}
+.m-del {
+    height: 40px;
+    width: 90px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F65454;
+    outline: none;
+    color: #ffffff;
+    position: absolute;
+    float: left;
+    right:700px;
+}
+/**
+    Form xac nhap xoa
+*/
+
+.m-popup {
+    display: none;
+}
+
+    .m-popup .popup-modal {
+        position: fixed;
+        z-index: 2000;
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        opacity: 0.8;
+    }
+
+    .m-popup .popup-content {
+        position: absolute;
+        /*width: 750px;*/
+        /*height: 580px;*/
+        z-index: 2000;
+        top: calc(50% - 190px);
+        left: calc(50% - 180px);
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+
+        .m-popup .popup-content .popup-title {
+            padding: 24px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+.popup-icon {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    margin: 0px 10px 24px 24px;
+    font-size: 14px;
+    color: #f65454;
+    background-color: #e9ebee;
+    border-radius: 50%;
+}
+
+    .popup-icon i {
+        margin-top: 10px;
+        margin-left: 11px;
+    }
+
+.popup-text {
+    margin: 8px 24px 24px 0px;
+}
+
+.popup-action {
+    display: flex;
+    background-color: #eeeeee;
+    padding: 10px;
+    border-radius: 0px 0px 5px 5px;
+    justify-content: flex-end;
+}
+
+.m-btn-cancel2 button {
+    height: 40px;
+    width: 90px;
+    border: none;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    outline: none;
+    margin-right: 16px;
+}
+
+    .m-btn-cancel2 button:hover {
+        background-color: #dddddd;
+        cursor: pointer;
+    }
+
+.m-btn-del button {
+    height: 40px;
+    width: 90px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F65454;
+    outline: none;
+    color: #ffffff;
+}
+
+    .m-btn-del button:hover {
+        cursor: pointer;
+    }
+
+.m-del:hover{
+    cursor: pointer;
+}
+
+/**
+    hien thi thong bao cho them, sua, xoa
+*/
+.m-inform {
+    position: fixed;
+    top: 40px;
+    right: 600px;
+    z-index: 1600;
+    display: none;
+}
+
+    .m-inform .warning-success {
+        background-color: #BAFFE7;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 4px;
+        font-size: 13px;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+    }
+
+.warning-success i {
+    font-size: 24px;
+    color: #01B075;
+}
+/**
+    Form thông báo lỗi
+*/
+.m-error{
+   display:none
+}
+.m-error .popup-modal {
+    position: fixed;
+    z-index: 2000;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.8;
+}
+.m-error .error-content {
+    position: absolute;
+    z-index: 2000;
+    top: calc(50% - 190px);
+    left: calc(50% - 180px);
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 400px;
+    height: auto;
+}
+    .m-error .error-content .error-title {
+        padding: 24px;
+        font-size: 20px;
+        font-weight:bold;
+    }
+.error-icon i {
+    padding-left: 16px;
+    padding-right: 10px;
+    color: red;
+}
+.error-action {
+    background-color: #E5E5E5;
+    height: 60px;
+  
+    border-radius:0 0 5px 5px;
+}
+.m-btn-close button {
+    width: 80px;
+    height: 40px;
+    color: white;
+    background-color: #019160;
+    border-radius: 5px;
+    border: 1px solid #bbbbbb;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    left: 290px;
+    margin-top: 10px;
+}
+
+.m-btn-close button:hover {
+    background-color: #2FBE8E;
 }

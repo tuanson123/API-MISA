@@ -15,10 +15,15 @@ namespace MISA.Infarstructure
 {
     public class CustomerRepository :BaseRepository<Customer>, ICustomerRepository
     {
+        /// <summary>
+        /// Thao tác cơ sở dữ liệu với khách hàng
+        /// CreateBy:DTSON(19/01/2021)
+        /// </summary>
         public CustomerRepository(IConfiguration configuration):base(configuration)
         {
 
         }
+        //Lấy ra dữ liệu theo mã 
         public Customer GetCustomerByCode(string customerCode)
         {
             var customerDulicate = _dbConnection.Query<Customer>($"select *from Customer where CustomerCode='{customerCode}'", commandType: CommandType.Text).FirstOrDefault();

@@ -14,14 +14,20 @@ namespace MISA.AplicationCore.Entities
         /// <summary>
         /// Khóa chính
         /// </summary>
+        [PrimaryKey]
         public Guid EmployeeId { get; set; }
         /// <summary>
         /// Mã nhân viên
         /// </summary>
+        [CheckDuplicate]
+        [Requied]
+        [DisplayName("Mã khách hàng")]
         public string EmployeeCode { get; set; }
         /// <summary>
         /// Họ tên nhân viên
         /// </summary>
+        [Requied]
+        [DisplayName("Họ tên")]
         public string FullName { get; set; }
         /// <summary>
         /// Ngày sinh
@@ -34,7 +40,10 @@ namespace MISA.AplicationCore.Entities
         /// <summary>
         /// Gố CMTCD/Căn cước
         /// </summary>
-        public string CitienID { get; set; }
+        [CheckDuplicate]
+        [Requied]
+        [DisplayName("CMT")]
+        public string CitizenID { get; set; }
         /// <summary>
         /// Ngày cấp CMTCD/Căn cước
         /// </summary>
@@ -46,10 +55,24 @@ namespace MISA.AplicationCore.Entities
         /// <summary>
         /// Địa chỉ Email
         /// </summary>
+        [CheckDuplicate]
+        [Requied]
+        [DisplayName("Email")]
         public string Email { get; set; }
+        /// <summary>
+        /// Lương
+        /// </summary>
+        public double? Salary { get; set; }
+        /// <summary>
+        /// Địa chỉ
+        /// </summary>
+        public string Address { get; set; }
         /// <summary>
         /// Số điện thoại
         /// </summary>
+        [CheckDuplicate]
+        [Requied]
+        [DisplayName("Số điện thoại")]
         public string PhoneNumber { get; set; }
         /// <summary>
         /// Khóa ngoại với bảng POSITION
@@ -62,18 +85,24 @@ namespace MISA.AplicationCore.Entities
         /// <summary>
         /// Mã số thuế cá nhân
         /// </summary>
+        [CheckDuplicate]
+        [DisplayName("Mã số thuế")]
         public string PersonalTaxCode { get; set; }
         /// <summary>
         /// ngày gia nhập
         /// </summary>
-        public DateTime? DateOfJoining { get; set; }
+        public DateTime? DateOfJoining {get; set; }
         /// <summary>
         /// Trạng thái công việc(0-Đã nghỉ việc, 1-Đang làm việc)
         /// </summary>
         public int WorkStatus { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public string ModifiedBy { get; set; }
+        /// <summary>
+        /// Vị trí làm việc
+        /// </summary>
+        public string PositionName { get; set; }
+        /// <summary>
+        /// Tên phòng ban
+        /// </summary>
+        public string DepartmentName { get; set; }
     }
 }

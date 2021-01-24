@@ -106,8 +106,17 @@ namespace MISACukCuk.Api.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
-            var res = _baseService.Delete(id);
-            return Ok(res);
+            //var res = _baseService.Delete(id);
+            //return Ok(res);
+            var serviceResult = _baseService.Delete(id);
+            if (serviceResult.MISACode == MISA.AplicationCore.Enums.MISACode.NotValid)
+            {
+                return BadRequest(serviceResult);
+            }
+            else
+            {
+                return Ok(serviceResult);
+            }
         }
         #endregion
     }

@@ -6,15 +6,22 @@ using System.Collections.Generic;
 
 namespace MISA.AplicationCore.Services
 {
+    /// <summary>
+    /// Interface check nghiệp vụ 
+    /// CreateBy:DTSON(19/01/2021)
+    /// </summary>
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity:BaseEntity
     {
+
         IBaseRepository<TEntity> _baseRepository;
         ServiceResult _serviceResult;
+        //Hàm Khởi tạo 
         public BaseService(IBaseRepository<TEntity> baseRepository)
         {
             _baseRepository = baseRepository;
             _serviceResult = new ServiceResult() { MISACode=Enums.MISACode.Success};
         }
+        //Check nghiệp vụ thêm
         public virtual ServiceResult Add(TEntity entity)
         {
             entity.EntityState = Enums.EntityState.AddNew;
@@ -24,8 +31,8 @@ namespace MISA.AplicationCore.Services
             if(isValidate==true)
             {
                 _serviceResult.Data = _baseRepository.Add(entity);
-                _serviceResult.MISACode = Enums.MISACode.IsValid;
-
+                _serviceResult.MISACode = Enums.MISACode.Success;
+                _serviceResult.Messenger = Properties.Resources.Msg_AddSuccess;
                 return _serviceResult;
             }
             else
@@ -35,23 +42,26 @@ namespace MISA.AplicationCore.Services
             }
            
         }
-
+        //Check nghiệp vụ xóa
         public ServiceResult Delete(Guid entityId)
         {
             _serviceResult.Data = _baseRepository.Delete(entityId);
+            _serviceResult.MISACode = Enums.MISACode.Success;
+            _serviceResult.Messenger = Properties.Resources.Msg_DeleteSuscess;
+
             return _serviceResult;
         }
-
+        //Check nghiệp vụ lấy tất cả
         public IEnumerable<TEntity> GetEntities()
         {
             return _baseRepository.GetEntities();
         }
-
+        //Check nghiệp vụ theo lấy theo Id
         public TEntity GetEntityId(Guid entityId)
         {
             return _baseRepository.GetEntityId(entityId);
         }
-
+        //Check nghiệp vụ sửa
         public ServiceResult Update(TEntity entity)
         {
             entity.EntityState = Enums.EntityState.Update;
@@ -60,6 +70,7 @@ namespace MISA.AplicationCore.Services
             {
                 _serviceResult.Data = _baseRepository.Update(entity);
                 _serviceResult.MISACode = Enums.MISACode.IsValid;
+                _serviceResult.Messenger = Properties.Resources.Msg_UpdateSuccess;
 
                 return _serviceResult;
             }
@@ -70,6 +81,7 @@ namespace MISA.AplicationCore.Services
             }
 
         }
+        //Nghiệp vụ check
         private bool Validate(TEntity entity)
         {
             var mesArrayError = new List<string>();
@@ -109,7 +121,7 @@ namespace MISA.AplicationCore.Services
                     if(entityDuplicate!=null)
                     {
                         isValidate = false;
-                        mesArrayError.Add(string.Format(Properties.Resources.Msg_IsNotValid,displayName));
+                        mesArrayError.Add(string.Format(Properties.Resources.Msg_Duplicate,displayName));
                         _serviceResult.MISACode = Enums.MISACode.NotValid;
                         _serviceResult.Messenger = Properties.Resources.Msg_IsNotValid;
                     }    
@@ -127,7 +139,7 @@ namespace MISA.AplicationCore.Services
                         isValidate = false;
                         mesArrayError.Add(msg??$"Thông tin vượt quá {length} kí tự cho phép.");
                         _serviceResult.MISACode = Enums.MISACode.NotValid;
-                        _serviceResult.Messenger = "Dữ liệu không hợp lệ";
+                        _serviceResult.Messenger = Properties.Resources.Msg_IsNotValid;
                     }    
                 }
 

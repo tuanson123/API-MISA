@@ -1,5 +1,4 @@
 ﻿using MISA.AplicationCore.Entities;
-using MISACukCuk.AplicationCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Interfaces
 {/// <summary>
- /// Interface check nghiệp vụ của nhân viên
+ /// Interface check nghiệp vụ vị trí
  /// CreateBy:DTSON(19/01/2021)
  /// </summary>
-    public interface IEmployeeService :IBaseService<Employee>
+    public interface IPositionService:IBaseService<Position>
     {
-
     }
 }

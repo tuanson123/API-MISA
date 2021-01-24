@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Entities
 {
+    /// <summary>
+    /// Nhóm khách hàng
+    /// CreateBy:DTSON(01/14/2021)
+    /// </summary>
     //Bắt buộc nhập
     [AttributeUsage(AttributeTargets.Property)]
     public class Requied:Attribute
@@ -19,13 +23,13 @@ namespace MISA.AplicationCore.Entities
     {
 
     }
-
+    //Khóa chính
     [AttributeUsage(AttributeTargets.Property)]
     public class PrimaryKey : Attribute
     {
 
     }
-
+    //HIện thị tên lỗi
     [AttributeUsage(AttributeTargets.Property)]
     public class DisplayName : Attribute
     {

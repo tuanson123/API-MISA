@@ -11,7 +11,7 @@ table th, td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space:nowrap;
-    max-width:50px;
+    max-width:200px;
     cursor:pointer;
 }
 table tr:hover{
@@ -24,8 +24,8 @@ table th{
     background-color:white;
 }
 ::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
+    width: 8px;
+    height: 8px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
@@ -34,10 +34,11 @@ table th{
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: grey;
+    background:
+    #BBBBBB;
     border-radius: 5px;
 }
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-        background: #BBBBBB;
+        background: grey;
     }

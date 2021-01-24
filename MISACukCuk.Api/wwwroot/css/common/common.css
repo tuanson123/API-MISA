@@ -42,8 +42,8 @@ input.border-red{
     position: fixed;
     top: calc(50% - 15px);
     left: calc(50% - 15px);
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     border: 2px solid #0094ff;
     border-bottom: none;

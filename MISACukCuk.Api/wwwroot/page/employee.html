@@ -15,10 +15,13 @@
     <link href="../css/common/header.css" rel="stylesheet" />
     <link href="../css/common/main.css" rel="stylesheet" />
     <link href="../css/common/navbar.css" rel="stylesheet" />
-    <link href="../css/page/employee.css" rel="stylesheet" />
-    <link href="../css/page/customer.css" rel="stylesheet" />
     <link href="../css/common/content.css" rel="stylesheet" />
     <link href="../css/common/radio.css" rel="stylesheet" />
+    <link href="../css/common/popup.css" rel="stylesheet" />
+    <link href="../css/common/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/page/employee.css" rel="stylesheet" />
+    <link href="../css/page/customer.css" rel="stylesheet" />
+
 </head>
 <body>
     <div class="navbar">
@@ -108,12 +111,22 @@
         <div class="filter-bar">
             <div class="filter-left">
                 <input class="icon-search input-search" type="text" placeholder="Tìm kiếm theo mã, Tên nhân viên" style="width:200px" />
-                <select>
-                    <option>Phòng đào tạo</option>
+                <select class="m-control">
+                    <option value="19165ed7-212e-21c4-0428-030d4265475f">Tất cả phòng ban</option>
+                    <option value="19165ed7-212e-21c4-0428-030d4265475f">Văn phòng Tổng công ty</option>
+                    <option value="7a0b757e-41eb-4df6-c6f8-494a84b910f4">Phong đào tạo công nghệ</option>
+                    <option value="3631011e-4559-4ad8-b0ad-cb989f2177da">Phòng Nhân sự</option>
                 </select>
+                <select class="m-control">
+                    <option value="19165ed7-212e-21c4-0428-030d4265475f">Tất cả vị trí</option>
+                    <option value="19165ed7-212e-21c4-0428-030d4265475f">Giám đốc</option>
+                    <option value="7a0b757e-41eb-4df6-c6f8-494a84b910f4">Trưởng phòng</option>
+                    <option value="3631011e-4559-4ad8-b0ad-cb989f2177da">Nhân viên</option>
+                </select>
+
             </div>
             <div class="filter-right">
-                <button class="m-second-button m-btn-refresh"></button>
+                <button class="m-second-button m-btn-refresh" id="btnRefresh"></button>
             </div>
         </div>
         <div class="grid grid-employee">
@@ -122,16 +135,15 @@
                     <tr>
                         <th fieldName="EmployeeCode">Mã nhân viên</th>
                         <th fieldName="FullName">Họ và tên</th>
-                        <th fieldName="GenderName">Gioi tính</th>
-                        <th fieldName="LastName">Tên nhân viên</th>
+                        <th fieldName="Gender">Gioi tính</th>
                         <th fieldName="DateOfBirth" formatType="ddmmyyyy">Ngày sinh</th>
-                        <th fieldName="Salary" formatType="MoneyVND">Lương</th>
+                        <th fieldName="Salary" formatType="MoneyVND">Mức Lương Cơ Bản</th>
                         <th fieldName="PhoneNumber">Số điện thoại</th>
                         <th fieldName="Email">Email</th>
                         <th fieldName="PositionName">Vị trí</th>
                         <th fieldName="DepartmentName">Phòng ban</th>
                         <th fieldName="Address">Địa chỉ</th>
-                        <th fieldName="WorkStatusName">Trạng thái làm việc</th>
+                        <th fieldName="WorkStatus">Trạng thái làm việc</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -202,7 +214,7 @@
                             <div class="m-row">
                                 <div class="m-label">Ngày sinh</div>
                                 <div class="m-control">
-                                    <input fieldname="DateOfbirth" id="txtDateOfbirth" type="date" placeholder="mm/dd/yyyy" />
+                                    <input fieldname="DateOfBirth" id="txtDateOfbirth" type="date" placeholder="mm/dd/yyyy" />
                                 </div>
                             </div>
                         </div>
@@ -210,7 +222,10 @@
                             <div class="m-row">
                                 <div class="m-label">Gioi tính</div>
                                 <div class="m-control dialog-select">
-                                    <select id="cbxGender" fieldName="Gender" fieldValue="Gender" api="/api/employeegroups">
+                                    <select id="cbxGender" fieldName="Gender" fieldValue="Gender">
+                                        <option value="0">Nữ</option>
+                                        <option value="1">Nam</option>
+                                        <option value="2">Khác</option>
                                     </select>
                                 </div>
                             </div>
@@ -240,15 +255,7 @@
                         <div class="dialog-body dialog-infor-one">
                             <div class="m-row">
                                 <div class="m-label">Nơi cấp</div>
-                                <div class="m-control"><input fieldName="PlaceOfID" id="txtPlaceOfID" type="text" class="input-required" /></div>
-                            </div>
-                        </div>
-                        <div class="dialog-body dialog-infor-two">
-                            <div class="m-row">
-                                <div class="m-row">
-                                    <div class="m-label">Email(<span>*</span>)</div>
-                                    <div class="m-control"><input fieldName="Email" id="txtEmail" type="text" class="input-required" /></div>
-                                </div>
+                                <div class="m-control"><input fieldName="PlaceOfID" id="txtPlaceOfID" type="text" /></div>
                             </div>
                         </div>
                     </div>
@@ -257,7 +264,7 @@
                         <div class="dialog-body dialog-infor-one">
                             <div class="m-row">
                                 <div class="m-label">Email(<span>*</span>)</div>
-                                <div class="m-control"><input fieldName="Email" id="txtEmail" type="text" class="input-required" /></div>
+                                <div class="m-control"><input fieldName="Email" id="txtEmail" type="email" class="input-required" /></div>
                             </div>
                         </div>
                         <div class="dialog-body dialog-infor-two">
@@ -278,7 +285,7 @@
                             <div class="m-row">
                                 <div class="m-label">Vị trí</div>
                                 <div class="m-control dialog-select">
-                                    <select id="cbxPosition" fieldName="Gender" fieldValue="Position" api="/api/employeegroups">
+                                    <select id="cbxPosition" fieldName="PositionName" fieldValue="PositionId" api="/api/v1/Positions" inputType="combobox">
                                     </select>
                                 </div>
                             </div>
@@ -287,7 +294,7 @@
                             <div class="m-row">
                                 <div class="m-label">Phòng ban</div>
                                 <div class="m-control dialog-select">
-                                    <select id="cbxDepartment" fieldName="Gender" fieldValue="Department" api="/api/employeegroups">
+                                    <select id="cbxDepartment" fieldName="DepartmentName" fieldValue="DepartmentId" api="/api/v1/Departments" inputType="combobox">
                                     </select>
                                 </div>
                             </div>
@@ -299,7 +306,7 @@
                             <div class="m-row">
                                 <div class="m-label">Mã số thuế cá nhân</div>
                                 <div class="m-control">
-                                    <div class="m-control"><input fieldName="PersonalTaxCode" id="txtPersonalTaxCode" type="text" class="input-required" /></div>
+                                    <div class="m-control"><input fieldName="PersonalTaxCode" id="txtPersonalTaxCode" type="text" /></div>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +314,7 @@
                             <div class="m-row">
                                 <div class="m-label">Mức lương cơ bản</div>
                                 <div class="m-control">
-                                    <div class="m-control"><input fieldName="Salary" id="txtSalary" type="text" class="input-required" /></div>
+                                    <div class="m-control"><input fieldName="Salary" id="txtSalary" type="text" /></div>
                                 </div>
                             </div>
                         </div>
@@ -316,7 +323,7 @@
                     <div class="dialog-body flex">
                         <div class="dialog-body dialog-infor-one">
                             <div class="m-row">
-                                <div class="m-label">Ngày gia nhập(<span>*</span>)</div>
+                                <div class="m-label">Ngày gia nhập</div>
                                 <div class="m-control">
                                     <input fieldname="DateOfJoining" id="txtDateOfJoining" type="date" placeholder="mm/dd/yyyy" />
                                 </div>
@@ -327,7 +334,9 @@
                                 <div class="m-row">
                                     <div class="m-label">Tình trạng công việc</div>
                                     <div class="m-control dialog-select">
-                                        <select id="cbxWorkStatus" fieldName="WorkStatus" fieldValue="Department" api="/api/employeegroups">
+                                        <select id="cbxWorkStatus" fieldName="WorkStatus" fieldValue="WorkStatus">
+                                            <option value="0">Đã nghỉ việc</option>
+                                            <option value="1">Đang làm việc</option>
                                         </select>
                                     </div>
                                 </div>
@@ -340,8 +349,9 @@
 
             <div class="dialog-footer">
                 <div class="dialog-footer-botton">
+                    <button class="m-del">Xóa</button>
                     <button class="m-btn btn-cancel" id="btnCancel">Huỷ</button>
-                    <button class="m-btn btn-save" id="btnSave"><i class="far fa-save"></i>Lưu</button>
+                    <button class="m-btn btn-save" id="btnSave"><i class="far fa-save" style="padding-right:16px"></i>Lưu</button>
                 </div>
 
             </div>
@@ -358,6 +368,42 @@
 
         </div>
     </div>
+
+    <div class="m-popup popup-detail" id="m-popup-confirmDel">
+        <div class="popup-modal"></div>
+        <div class="popup-content">
+            <div class="popup-title">Thông báo</div>
+            <div style="display:flex">
+                <div class="popup-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="popup-text">Bạn có chắc chắn muốn xóa nhân viên <span style="font-weight: bold;" id="idRowDel"></span> không?</div>
+            </div>
+            <div class="popup-action">
+                <div class="m-btn-cancel2"><button id="m-btn-cancel2">Không</button></div>
+                <div class="m-btn-del"><button id="btnDel">Có</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-inform">
+        <div class="warning-success">
+            <i class="fas fa-info-circle"></i>&nbsp; Them thanh cong
+        </div>
+    </div>
+
+    <div class="m-error" id="m-error">
+        <div class="popup-modal"></div>
+        <div class="error-content">
+            <div class="error-title">Thông báo lỗi:</div>
+            <div id="popup-list-content">
+                
+            </div>
+            <div class="error-action">
+                <div class="m-btn-close"><button id="m-btn-close">Đóng</button></div>
+
+            </div>
+        </div>
+    </div>
+
     <script src="../lib/jquery-3.5.1.min.js"></script>
     <script src="../js/common/common.js"></script>
     <script src="../js/common/base.js"></script>

@@ -19,4 +19,7 @@
     .input-search {
         padding-left: 40px;
     }
-
+    input[type=date]
+    {
+        height:15px;
+    }

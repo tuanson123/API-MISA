@@ -1,4 +1,4 @@
-﻿.m-btn {
+.m-btn {
     display: flex;
     background-color: #019160;
     border-radius: 4px;
@@ -85,7 +85,8 @@
         margin-right: 10px;
         background-color:gainsboro;
         color:black;
-
+        /* margin-top: 10px; */
+        /* margin-bottom: 10px; */
     }
     .btn-cancel:hover{
         background-color:darkgrey;

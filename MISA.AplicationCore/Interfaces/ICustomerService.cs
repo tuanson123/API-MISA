@@ -7,14 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Interfaces
-{
-    public interface ICustomerService:IBaseService<Customer>
+{/// <summary>
+ /// Interface check nghiệp vụ của khách hàng
+ /// CreateBy:DTSON(19/01/2021)
+ /// </summary>
+    public interface ICustomerService : IBaseService<Customer>
     {/// <summary>
-    /// Lấy dữ liệu phân trang
-    /// </summary>
-    /// <param name="limit"></param>
-    /// <param name="offset"></param>
-    /// <returns></returns>
+     /// Lấy dữ liệu phân trang
+     /// </summary>
+     /// <param name="limit"></param>
+     /// <param name="offset"></param>
+     /// <returns></returns>
         IEnumerable<Customer> GetCustomerPaging(int limit, int offset);
         /// <summary>
         /// Lấy danh sách khách hàng theo nhóm khách hàng

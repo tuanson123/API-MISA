@@ -31,4 +31,48 @@ function formatMoney(money) {
     }
     else return num = "0";
 }
+/**
+ * Đổ dữ liệu từ server lên Combobox  Vị trí tương ứng
+ * @param {any} url
+ */
+function loadPosition(url) {
+    var selectPosition = $('select#cbxPosition');
+    selectPosition.empty();
+    //Gọi service tương ứng
+    $.ajax({
+        url: url + "/api/v1/positions",
+        method: "GET"
+    }).done(function (res) {
+        if (res) {
+            $.each(res, function (index, obj) {
+                var option = $(`<option value="${obj.PositionId}">${obj.PositionName}</option>`);
+                selectPosition.append(option);
+            })
+        }
+    }).fail(function (res) {
+    });
+}
+/**
+ * Đổ dữ liệu từ server lên Combobox  Phòng Ban tương ứng
+ * @param {any} url
+ */
+function loadDepartment(url) {
+    var selectDepartment = $('select#cbxDepartment');
+    selectDepartment.empty();
+    //Gọi service tương ứng
+    $.ajax({
+        url: url + "/api/v1/departments",
+        method: "GET"
+    }).done(function (res) {
+        if (res) {
+            $.each(res, function (index, obj) {
+                var option = $(`<option value="${obj.DepartmentId}">${obj.DepartmentName}</option>`);
+                selectDepartment.append(option);
+            })
+        }
+        $('.loading').hide();
+    }).fail(function (res) {
+        $('.loading').hide();
+    })
+}
 

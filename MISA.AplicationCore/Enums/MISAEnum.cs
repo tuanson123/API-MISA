@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace MISA.AplicationCore.Enums
 {
- 
-        public enum MISACode
+    /// <summary>
+    /// Trả về các loại lỗi
+    /// CreateBy:DTSON(19/01/2021)
+    /// </summary>
+
+    public enum MISACode
 
         {   /// <summary>
             /// Dữ liệu hợp lệ
@@ -28,9 +32,18 @@ namespace MISA.AplicationCore.Enums
     /// </summary>
         public enum EntityState
         {
+        /// <summary>
+        /// Nếu thêm thì là 1
+        /// </summary>
             AddNew=1,
-            Update=2,
-            Delete=3,
+        /// <summary>
+        /// Nếu sửa thì là 2
+        /// </summary>
+        Update = 2,
+        /// <summary>
+        /// Nếu xóa thì là 3
+        /// </summary>
+        Delete = 3,
 
         }
     

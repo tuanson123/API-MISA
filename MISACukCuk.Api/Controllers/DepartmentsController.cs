@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 namespace MISACukCuk.Api.Controllers
 {
     
-    public class DepartmentsController : BaseEntityController<Employee>
+    public class DepartmentsController : BaseEntityController<Department>
     {
-        IBaseService<Employee> _baseService;
-        public DepartmentsController(IBaseService<Employee> baseService) : base(baseService)
+        IBaseService<Department> _baseService;
+        public DepartmentsController(IBaseService<Department> baseService) : base(baseService)
         {
             _baseService = baseService;
         }

@@ -17,7 +17,11 @@ using System.Threading.Tasks;
 namespace MISA.Infarstructure
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity>,IDisposable where TEntity:BaseEntity
-    {
+    {/// <summary>
+     /// Thao tác thực thi với CSDL
+     /// CreateBy:DTSON(19/01/2021)
+     /// </summary>
+     
         #region Declare
         //Khai báo biến
         IConfiguration _configuration;
@@ -25,6 +29,7 @@ namespace MISA.Infarstructure
         protected IDbConnection _dbConnection = null;
         protected string _tableName;
         #endregion
+        //HÀM khởi tạo
         public BaseRepository(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -32,6 +37,7 @@ namespace MISA.Infarstructure
             _dbConnection = new MySqlConnection(_connectionString);
             _tableName = typeof(TEntity).Name;
         }
+        //Thêm dữ liệu
         public int Add(TEntity entity)
         {
             var rowAffects = 0;
@@ -53,21 +59,25 @@ namespace MISA.Infarstructure
             // Trả về kết quả (số bản ghi thêm mới được)
             return rowAffects;
         }
-
-        public int Delete(Guid customerId)
+        //Xóa dữ liệu
+        public int Delete(Guid entityId)
         {
 
-
+            var dictionary = new Dictionary<string, object>
+            {
+                { $"{_tableName}Id", entityId.ToString() }
+            };
+            DynamicParameters parameter = new DynamicParameters(dictionary);
             var res = 0;
             _dbConnection.Open();
             using (var transaction = _dbConnection.BeginTransaction())
             {
-                res = _dbConnection.Execute($"DELETE FROM {_tableName} WHERE {_tableName}Id = '{customerId.ToString()}'", commandType: CommandType.Text);
+                res = _dbConnection.Execute($"Proc_Delete{_tableName}ById", param: parameter, commandType: CommandType.StoredProcedure);
                 transaction.Commit();
             }
             return res;
         }
-
+        //Lấy dữ liệu
         public virtual IEnumerable<TEntity> GetEntities()
         {
             //Lấy dữ liệu data base
@@ -83,48 +93,54 @@ namespace MISA.Infarstructure
             //Trả về dữ liệu
             return entities;
         }
-        public TEntity GetEntityId(Guid customerId)
+        //Lấy dữ liệu theo Id
+        public TEntity GetEntityId(Guid entityId)
         {
-            throw new NotImplementedException();
+            var dictionary = new Dictionary<string, object>
+            {
+                { $"{_tableName}Id", entityId.ToString() }
+            };
+            DynamicParameters parameter = new DynamicParameters(dictionary);
+            // tạo commandText
+            var entity = _dbConnection.Query<TEntity>($"Proc_Get{_tableName}ById", param: parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            // trả về dữ liệu 
+            return entity;
         }
-
+        //Sửa dữ liệu
         public int Update(TEntity entity)
         {
-            //Khởi tạo kết nối với database
-            var parameters = MappingDbType(entity);
 
-            //Thực hiện câu lệnh truy vấn thêm mới vào database
-            var res = _dbConnection.Execute($"Proc_Update{_tableName}", parameters, commandType: CommandType.StoredProcedure);
-            //Trả dữ liệu cho client
+            var rowAffects = 0;
+            _dbConnection.Open();
+            using (var transaction = _dbConnection.BeginTransaction())
+            {
+                var parameters = MappingDbType(entity);
+                // Thực hiện sửa khách hàng:
+                rowAffects = _dbConnection.Execute($"Proc_Update{_tableName}", parameters, commandType: CommandType.StoredProcedure);
+                transaction.Commit();
 
-            return res;
+            }
+            // Trả về kết quả (số bản ghi thêm mới được)
+            return rowAffects;
         }
+        //Hàm dùng cho những cho cái chung
         private DynamicParameters MappingDbType(TEntity entity)
         {
             var properties = entity.GetType().GetProperties();
-            var parameters = new DynamicParameters();
+            var dynamicParameters = new DynamicParameters();
+            // Xử lí các kiểu dữ liệu (mapping database)
             foreach (var property in properties)
             {
                 var propertyName = property.Name;
                 var propertyValue = property.GetValue(entity);
-                var propertyType = property.PropertyType;
-                if (propertyType == typeof(Guid) || propertyType == typeof(Guid?))
+                //Nếu property có kiểu dữ liệu là Guid thì chuyển value sang toString
+                if (property.PropertyType == typeof(Guid) || property.PropertyType == typeof(Guid?))
                 {
-                    parameters.Add($"@{propertyName}", propertyValue, DbType.String);
+                    propertyValue = property.GetValue(entity).ToString();
                 }
-                else if (propertyType == typeof(bool) || propertyType == typeof(bool?))
-                {
-                    var dbValue = ((bool)propertyValue == true ? 1 : 0);
-                    parameters.Add($"@{propertyName}", dbValue, DbType.Int32);
-                }
-                else
-                {
-                    parameters.Add($"@{propertyName}", propertyValue);
-                }
-
+                dynamicParameters.Add($"@{propertyName}", propertyValue);
             }
-            return parameters;
-
+            return dynamicParameters;
         }
 
         public TEntity GetEntityByProperty(TEntity entity, PropertyInfo property)
