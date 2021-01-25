@@ -1,4 +1,8 @@
 ﻿class BaseJS {
+/**
+* Gán các khởi tạo ban đầu
+* CreatedBy:DTSON(12/29/2020)
+* */
     constructor() {
         //Các khởi tạo
         this.host = "";
@@ -8,8 +12,12 @@
         this.clickEvent();
 
     }
-    setApiRouter() { }
+  
 
+/**
+* Click các sự kiện
+* CreatedBy:DTSON(12/29/2020)
+* */
     clickEvent() {
         var me = this;
         /**
@@ -26,10 +34,6 @@
         });
         // Thực hiện form xác nhận xóa
         $('.m-del').click(function () {
-            //var span = $('#idRowDel');
-            //span.empty();
-            //span.append(me.EmployeeCode);
-            // hiển thị form xác nhận xóa
             $('#m-popup-confirmDel').show();
         });
 
