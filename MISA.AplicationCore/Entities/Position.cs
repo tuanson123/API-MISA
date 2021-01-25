@@ -12,7 +12,7 @@ namespace MISA.AplicationCore.Entities
         /// Thông tin vị trí
         /// CreateBy:DTSON(19/01/2021)
         /// </summary>
-
+        #region property
         /// <summary>
         /// ID của vị trí làm việc
         /// </summary>
@@ -25,5 +25,6 @@ namespace MISA.AplicationCore.Entities
         /// Mô tả
         /// </summary>
         public string Description { get; set; }
+        #endregion
     }
 }

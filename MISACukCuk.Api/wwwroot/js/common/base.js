@@ -88,8 +88,8 @@
 
 
         /**
-     *Thực hiện lưu dữ liệu khi nhấn lưu
-     * **/
+        *Thực hiện lưu dữ liệu khi nhấn lưu
+        * **/
         $('#btnSave').click(me.btnSaveOnClick.bind(me));
 
         //load form

@@ -12,6 +12,7 @@ namespace MISA.AplicationCore.Entities
  /// </summary>
     public class ServiceResult
     {
+        #region property
         /// <summary>
         /// Trả ra dữ liệu
         /// </summary>
@@ -24,5 +25,6 @@ namespace MISA.AplicationCore.Entities
         /// Các loại lỗi API
         /// </summary>
         public MISACode MISACode { get; set; }
+        #endregion
     }
 }

@@ -24,6 +24,8 @@ namespace MISA.Infarstructure
         string _connectionString = string.Empty;
         IDbConnection _dbConnection = null;
         #endregion
+
+        #region Contructor
         //Hàm khởi tạo
         public EmployeeRepository(IConfiguration configuration) : base (configuration)
         {
@@ -31,11 +33,15 @@ namespace MISA.Infarstructure
             _connectionString = configuration.GetConnectionString("MISACukCukConnectionString");
             _dbConnection = new MySqlConnection(_connectionString);
         }
+        #endregion
+        #region method
         //Lấy ra nhân viên theo mã
         public Employee GetEmployeeByCode(string employeeCode)
         {
             var employeeDulicate = _dbConnection.Query<Employee>($"select *from Employee where employeeCode='{employeeCode}'", commandType: CommandType.Text).FirstOrDefault();
             return employeeDulicate;
         }
+        #endregion
+
     }
 }

@@ -11,6 +11,7 @@ namespace MISA.AplicationCore.Entities
     /// Nhóm khách hàng
     /// CreateBy:DTSON(01/14/2021)
     /// </summary>
+    #region Method
     //Bắt buộc nhập
     [AttributeUsage(AttributeTargets.Property)]
     public class Requied:Attribute
@@ -41,6 +42,7 @@ namespace MISA.AplicationCore.Entities
     }
 
     [AttributeUsage(AttributeTargets.Property)]
+    //Kiểm tra độ dài
     public class MaxLengh:Attribute
     {
         public int Value { get; set; }
@@ -50,7 +52,8 @@ namespace MISA.AplicationCore.Entities
             this.Value = lengh;
             this.ErrorMsg = errorMsg;
         }    
-    }    
+    } 
+    //Lớp thuộc tính chung
     public class BaseEntity
     {
         public EntityState EntityState { get; set; } = EntityState.AddNew;
@@ -59,4 +62,5 @@ namespace MISA.AplicationCore.Entities
         public DateTime? ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
     }
+    #endregion
 }

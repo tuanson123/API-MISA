@@ -13,11 +13,13 @@ namespace MISA.AplicationCore.Services
      /// check nghiệp vụ của vị trí
      /// CreateBy:DTSON(19/01/2021)
      /// </summary>
+        #region Contructor
         IPositionRepository _positionRepository;
         //Hàm khởi tạo
         public PositionService(IPositionRepository positionRepository) : base(positionRepository)
         {
             _positionRepository = positionRepository;
         }
+        #endregion
     }
 }

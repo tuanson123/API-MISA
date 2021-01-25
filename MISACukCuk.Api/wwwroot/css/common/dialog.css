@@ -155,8 +155,6 @@
 
 .dialog-footer-botton .btn-save {
 
-    margin-left: 30px;
-    margin-right: 36px;
 }
 
 .dialog-select select {
@@ -279,8 +277,8 @@
 */
 .m-inform {
     position: fixed;
-    top: 40px;
-    right: 600px;
+    top: 510px;
+    right: 70px;
     z-index: 1600;
     display: none;
 }

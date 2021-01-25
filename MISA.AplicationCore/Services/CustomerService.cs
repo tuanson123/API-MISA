@@ -17,15 +17,15 @@ namespace MISA.AplicationCore
  /// nghiệp vụ của khách hàng
  /// CreateBy:DTSON(19/01/2021)
  /// </summary>
-    public class CustomerService: BaseService<Customer>,ICustomerService
+    public class CustomerService : BaseService<Customer>, ICustomerService
     {
-        
+
         ICustomerRepository _customerRepository;
         #region Constructor
         //Khởi tạo
-        public CustomerService(ICustomerRepository customerRepository) :base(customerRepository)
+        public CustomerService(ICustomerRepository customerRepository) : base(customerRepository)
         {
-            
+
             _customerRepository = customerRepository;
         }
 

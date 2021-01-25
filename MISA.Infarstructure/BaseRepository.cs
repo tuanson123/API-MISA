@@ -29,6 +29,7 @@ namespace MISA.Infarstructure
         protected IDbConnection _dbConnection = null;
         protected string _tableName;
         #endregion
+        #region Contructor
         //HÀM khởi tạo
         public BaseRepository(IConfiguration configuration)
         {
@@ -37,6 +38,8 @@ namespace MISA.Infarstructure
             _dbConnection = new MySqlConnection(_connectionString);
             _tableName = typeof(TEntity).Name;
         }
+        #endregion
+        #region Method
         //Thêm dữ liệu
         public int Add(TEntity entity)
         {
@@ -170,5 +173,6 @@ namespace MISA.Infarstructure
             if (_dbConnection.State == ConnectionState.Open)
                 _dbConnection.Close();
         }
+        #endregion
     }
 }

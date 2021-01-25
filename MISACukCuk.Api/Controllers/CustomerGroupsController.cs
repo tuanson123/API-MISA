@@ -33,6 +33,7 @@ namespace MISACukCuk.Api.Controllers
             _dbConnection = new MySqlConnection(_connectionString);
         }
         #endregion
+        #region Method
         [HttpGet]
         public IActionResult Get()
         {
@@ -68,6 +69,7 @@ namespace MISACukCuk.Api.Controllers
         {
             return Ok(1);
         }
+        #endregion
 
 
     }

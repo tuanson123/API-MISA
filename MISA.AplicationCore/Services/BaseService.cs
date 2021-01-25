@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace MISA.AplicationCore.Services
 {
     /// <summary>
-    /// Interface check nghiệp vụ 
+    /// Check nghiệp vụ 
     /// CreateBy:DTSON(19/01/2021)
     /// </summary>
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity:BaseEntity

@@ -13,11 +13,13 @@ namespace MISACukCuk.Api.Controllers
     [ApiController]
     public class BaseEntityController<TEntity> : ControllerBase
     {
+        #region Contructor
         IBaseService<TEntity> _baseService;
         public BaseEntityController(IBaseService<TEntity> baseService)
         {
             _baseService = baseService;
         }
+        #endregion
         #region Method
 
 

@@ -19,6 +19,7 @@ namespace MISA.Infarstructure
         /// Thao tác cơ sở dữ liệu với khách hàng
         /// CreateBy:DTSON(19/01/2021)
         /// </summary>
+        #region methor
         public CustomerRepository(IConfiguration configuration):base(configuration)
         {
 
@@ -30,5 +31,6 @@ namespace MISA.Infarstructure
             return customerDulicate;
             
         }
+        #endregion
     }
 }

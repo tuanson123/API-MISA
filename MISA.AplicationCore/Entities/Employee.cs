@@ -14,6 +14,7 @@ namespace MISA.AplicationCore.Entities
         /// <summary>
         /// Khóa chính
         /// </summary>
+        #region Property
         [PrimaryKey]
         public Guid EmployeeId { get; set; }
         /// <summary>
@@ -104,5 +105,6 @@ namespace MISA.AplicationCore.Entities
         /// Tên phòng ban
         /// </summary>
         public string DepartmentName { get; set; }
+        #endregion
     }
 }

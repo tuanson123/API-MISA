@@ -13,11 +13,14 @@ namespace MISA.AplicationCore.Services
      /// nghiệp vụ của phòng ban
      /// CreateBy:DTSON(19/01/2021)
      /// </summary>
+     /// 
+        #region Contructor
         IDepartmentRepository _departmentRepository;
         //Hàm khởi tạo
         public DepartmentService(IDepartmentRepository departmentRepository) : base(departmentRepository)
         {
             _departmentRepository = departmentRepository;
         }
+        #endregion
     }
 }

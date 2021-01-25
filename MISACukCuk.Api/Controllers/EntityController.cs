@@ -26,6 +26,7 @@ namespace MISACukCuk.Api.Controllers
             _dbConnector = new DbConnector();
         }
         #endregion
+        #region method
         [HttpGet]
         public virtual IActionResult Get()
         {
@@ -61,5 +62,6 @@ namespace MISACukCuk.Api.Controllers
         {
             return Ok(1);
         }
+        #endregion
     }
 }

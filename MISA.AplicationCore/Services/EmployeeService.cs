@@ -14,12 +14,14 @@ namespace MISA.AplicationCore.Services
      /// check nghiệp vụ của nhân viên
      /// CreateBy:DTSON(19/01/2021)
      /// </summary>
+        #region Contructor
         IEmployeeRepository _employeeRepository;
         //Hàm khởi tạo
         public EmployeeService(IEmployeeRepository employeeRepository) : base(employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }
+        #endregion
 
 
     }
